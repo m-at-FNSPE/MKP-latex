@@ -1,0 +1,71 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+
+\section{Značení}
+
+
+$\Omega \subset \mathbb{R}^n$ omezená oblast
+
+$\partial\Omega$ Liepschitzovská oblast - lze pokrýt konečně mnoha grafy Liepschitzovských zobrazení ($|\phi(x) -  \phi(y)| < L ||x-y||$)
+
+$\bar{\Omega}$ - uzávěr oblasti $\Omega$
+
+$\mathcal{C}^{(k)}(\Omega)$ spojité funkce s derivacemi do k-tého řádu spojité na $\Omega$
+
+$\mathcal{C}^{(\infty)}(\Omega)$ hladké funkce na $\Omega$
+
+
+$f\in\continuous{k}, \frac{\partial^{|\alpha|}}{\partial^{\alpha_1}x_1\partial^{\alpha_2}x_2...\partial^{\alpha_n}x_n} f = \mathcal{D}^\alpha, \alpha = [\alpha_1, \alpha_2, ..., \alpha_n], |\alpha|=\sum_i \alpha_i $
+
+
+
+
+Lebesgueovy prostory
+$L_p(\Omega) = \{f: \Omega \mapsto \mathbb{R}| \text{měritelné}, \int_{\Omega}|f(x)|^p dx < +\infty \}$
+$p \in <1, +\infty)$
+
+$L_\infty(\Omega) = \{  f:\Omega\mapsto\mathbb{R} | \text{měřitelné}, (\exists K > 0)(s.v. x \in\Omega)(|f(x)| \leq K)  \}$
+
+
+\section{Vztahy}
+
+Minkowskeho nerovnost
+\begin{equation}\label{eq:Mink}
+    \left ( \int_\Omega |f(x) + g(x)|^p dx \right ) ^{\frac{1}{p}} \leq \left ( \int_\Omega |f(x)|^p dx \right ) ^{\frac{1}{p}} + \left ( \int_\Omega |g(x)|^p dx \right ) ^{\frac{1}{p}}
+\end{equation}
+
+
+Holderova nerovnost
+$\left (  \frac{1}{p} + \frac{1}{q} = 1 \right ), f \in L_p(\Omega), g \in L_q(\Omega)$
+\begin{equation}\label{eq:Holder}
+    \int_\Omega \left| f(x)g(x) \right| dx \leq \left ( \int_\Omega |f(x)|^p dx \right ) ^{\frac{1}{p}} * \left ( \int_\Omega |g(x)|^q dx \right ) ^{\frac{1}{q}}
+\end{equation}
+
+$p_2 > p_1 \geq 1 \implies L_{p_2}(\Omega) \subset L_{p_1}(\Omega)$
+
+
+\begin{equation}
+    \int_\Omega |f(x)|^{p_1}dx = \int_\Omega |f(x)|^{p_1} * 1dx \leq \text{Holder \eqref{eq:Holder}} \leq \left ( \int_\Omega \left ( |f(x)|^{p_1}\right )^{\frac{p_1}{p_2}} \right )^\frac{p_1}{p_2} * \left ( \int_\Omega 1 ^q dx \right ) ^ \frac{1}{q} = \left( \int_\Omega |f(x)|^{p_2} \right)^{\frac{p_1}{p_2}} * |\Omega| = |\Omega| \int_\Omega |f(x)|^{p_2}
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
