@@ -1,0 +1,88 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+
+
+
+
+Definice: funkce $u\in\mathbb{W}_2^{(1)}(\Omega)$ je slabé řešení (1), pokud $(\exists w\in\mathbb{W}_2^{(1)}(\Omega) )(T w|_{\Gamma_0})= g_0), u = w + z$ a $z$ je řešení variační úlohy $(\forall v \in V)(a(z,v) = F(v))$
+
+Poznámka: Pro zajištění existence řešení: $a_{ij} \in L_\infty(\Omega), q\in L_\infty(\Omega), f\in L_2(\Omega), g_1 \in L_2(\Gamma_1), g_0\in T(\mathbb{W}_2^{(1)}(\Omega))$
+
+Lax-Milgramova věta:
+
+Nechť V je Hilbertův prostor, $a(., .)$ je bilineární forma, F je spojitý lineární funkcionál na V a platí:
+\begin{enumerate}
+    \item $a(\dot, \dot)$ je omezená: $(\exists K>0)(\forall u,v \in V)(|a(u,v)|\leq K ||u|| ||v||)$
+    \item $a(\dot, \dot)$ je V-eliptická: $(\exists\alpha>0)(\forall v \in V)(a(u,u)\geq \alpha||u||^2)$
+\end{enumerate}
+Pak $(\exists_1z\in V)(\forall v \in V)(a(z,v) = F(v))$
+
+Poznámka:
+Splnění požadavků Lax-Milgramovy věty:
+\begin{itemize}
+    \item F je spojitý, lineární: $|F(v)| = |-a(w,v) + \int_\omega f(x)vdx + \int_{\Gamma_1}g_1(x)v\ dS|$ 
+        \begin{itemize}
+            \item $a(w,v)$ je dáno vlastnosti $a(.,.)$
+            \item $|\int_\omega f(x)vdx| \ leq \left( \int_\Omega |f(x)|^2\ dx \right)^{\frac{1}{2}}  \left( \int_\Omega |v(x)|^2\ dx \right)^{\frac{1}{2}} = ||f||_{L_2(\Omega)}||v||_{L_2(\Omega)}$
+            \item $|\int_{\Gamma_1}g_1(x)v\ dS| \leq \left( \int_{\Gamma_1} |g_1(x)|^2\ dS \right)^{\frac{1}{2}}  \left( \int_{\Gamma_1} |Tv(x)|^2\ dS \right) = ||g_1||_{L_2(\Gamma_1)} \times K_t||v||_{W_2^{(1)}(\Omega)}$
+        \end{itemize}
+    \item $a(., .)$ je omezená $|a(u,v)| = \left| \int_\Omega \sum_{i,j=1}^n a_{ij}(x)\frac{\partial u}{\partial x_j}\frac{\partial v}{\partial x_i} + q(x)uv \ dx   \right| \break \leq K_{a,q} \left( \sum_{i,j=1}^n \left|| \frac{\partial u}{\partial x_j}\right||_{L_2(\Omega)} \left||\frac{\partial v} {\partial x_i} \right||_{L_2(\Omega)} + ||u||_{L_2(\Omega)} ||v||_{L_2(\Omega)}  +  \right) \leq K_{a,q}(u^2 + 1) ||u||_{W_2^{(1)}(\Omega)} ||v||_{W_2^{(1)}(\Omega)}$
+    \item $a(.,.)$ je V-eliptická: $a(u,u) = \sum_{i,j=1}^n a_{ij}(x)\frac{\partial u}{\partial x_j}\frac{\partial u}{\partial x_i} + q(x)u^2 dx = (chybi barevne) \implies a(n,n)\geq c_0 \sum_{i=1}^n \int_\Omega \left|  \frac{\partial u}{\partial x_i}    \right|^2\ dx + d_0 \int_\Omega|i|^2\ dx \geq min \{c_0, d_0 \} ||u||^2_{W_2^{(1)}(\Omega)}$
+\end{itemize}
+
+Galerkinova metoda pro přibližné řešení variační úlohy \ref{} (2) $(\forall v \in V)(a(z,v) = F(v))$
+
+Nechť $V_h \subset \subset V$ je konečně-rozměrný podprostor V a hledáme aproximaci $z_h$ řešení $z$ úlohy (2) \ref{} v prostoru $V_h$ tak, aby $(\forall v\in V_n)(a(z_n,v) = F(v))$ (tohle má mít referenci v textu zatím 3)
+
+
+Poznámka:
+Řešení \ref{} (3) jednoznačně existuje díky Laxově-Milgramově větě.
+
+Poznámka: Budeme zkoumat chybu Galerkinovy metody (později v kontextu MKP): $z-z_n$
+
+Věta (Céova)
+
+Nechť pro $a(.,.)$ a $F$ platí výše uvedené předpoklady a $z$ řeší (2) \ref{} . Pak pro řešení $z_h$ úlohy (3) \ref{} platí 
+\begin{equation}
+    ||z_h - z||_V \leq \frac{K}{\alpha} min\{||z - v||_V | v\inV_h \}
+\end{equation}
+Důkaz:
+z (2) a (3) platí $a(z,v) = F(v) \and a(z_h, v) = F(v)$ pro $v\in V_h  \implies a(z,v) - a(z_h,v)=0 \implies a(z - z_h, v)= 0$
+
+Platí že $a(.,.)$ je V-eliptická: $\alpha ||z - z_h||^2_v \leq a(z-z_h, z-z_h) = \text{vkládáme} v \in V_h = a(z-v, z-z_h) + a(v-z_h, z-z_h) = (\star)$
+
+Platí že $z-v \in V$ a $v - z_h \in V_h$, dále vidíme že druhý sčítanec je 0 díky prvnímu řádku důkazu. 
+
+$(\star) \leq a(z-v, z-z_h) \leq K ||z-v||_V ||z-z_h||_V \implies \alpha||z-z_h||_V \leq K ||z-v||_V \forall v\in V_h$ (konečně rozměrný)
+$\implies ||z-z_h||_V  \leq \frac{K}{\alpha} min\{||z-v||_V |v\in V_h  \}$
+
+Tady možná ten obrázek koule lol
+
+Postup MKP pro řešení \ref{} (1) na konkrétní oblasti $\Omega\subset\mathbb{R}^n$
+
+(2) \ref{} $a(z,v) = F_v \forall v \in V$ 
+
+OBRAZEK
+
+\begin{enumerate}
+    \item Diskretizace $\Omega$ 
+    \begin{enumerate}
+        \item základní rozdělení $\Omega$ podle jejího tvaru
+        \item Pravidlo zjemňování, např. podle středů stran
+    \end{enumerate}
+    \item Konstrukce prostrou $V_h$ - určíme bázi $V_h =  [\phi_1, \phi_2, ... , \phi_n ]_\lambda$, kde $\phi_j$ budou po částech lineární (nebo později polynomiální) tak, aby $\phi_j$ byly $=1$ v jednom uzlu a $=0$ ve všech ostatních
+\end{enumerate}
+
+Obrázek pro bod 2
+
+
+
+
+
+
+
+
+
+
+\end{document}
