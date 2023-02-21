@@ -16,12 +16,12 @@ a označme $V = \left\{ z\in\SobolevSpace | Tz|_{\Gamma_0} = 0 \right\}$
 
 
 \begin{theorem}
-    Funkce $u\in\SobolevSpace$ je slabé řešení \refI, pokud $(\exists w\in\SobolevSpace)(T w|_{\Gamma_0})= g_0), u = w + z$ a $z$ je řešení variační úlohy $(\forall v \in V)(a(z,v) = F(v))$
+    Funkce $u\in\SobolevSpace$ je slabé řešení \refI, pokud \\ $(\exists w\in\SobolevSpace)(T w|_{\Gamma_0}= g_0), u = w + z$ \\ a $z$ je řešení variační úlohy $(\forall v \in V)(a(z,v) = F(v))$
 \end{theorem}
 
 
 \begin{remark}
-    Pro zajištění existence řešení: $a_{ij} \in L_\infty(\Omega), q\in L_\infty(\Omega), f\in L_2(\Omega), g_1 \in L_2(\Gamma_1), g_0\in T(\SobolevSpace)$
+    Pro zajištění existence řešení: \\ $a_{ij} \in L_\infty(\Omega), q\in L_\infty(\Omega), f\in L_2(\Omega), g_1 \in L_2(\Gamma_1), g_0\in T(\SobolevSpace)$
 \end{remark}
 
 \begin{theorem}[Lax-Milgramova věta]
@@ -36,14 +36,14 @@ a označme $V = \left\{ z\in\SobolevSpace | Tz|_{\Gamma_0} = 0 \right\}$
 \begin{remark}
 Splnění požadavků Lax-Milgramovy věty:
 \begin{itemize}
-    \item F je spojitý, lineární: $|F(v)| = |-a(w,v) + \int_\omega f(x)vdx + \int_{\Gamma_1}g_1(x)v\ dS|$ 
+    \item F je spojitý, lineární:\\ $|F(v)| = |-a(w,v) + \int_\omega f(x)vdx + \int_{\Gamma_1}g_1(x)v\ dS|$ 
         \begin{itemize}
             \item $a(w,v)$ je dáno vlastnosti $a(\cdot,\cdot)$
-            \item $|\int_\omega f(x)vdx| \leq \left( \int_\Omega |f(x)|^2\ dx \right)^{\frac{1}{2}}  \left( \int_\Omega |v(x)|^2\ dx \right)^{\frac{1}{2}} = ||f||_{L_2(\Omega)}||v||_{L_2(\Omega)}$
-            \item $|\int_{\Gamma_1}g_1(x)v\ dS| \leq \left( \int_{\Gamma_1} |g_1(x)|^2\ dS \right)^{\frac{1}{2}}  \left( \int_{\Gamma_1} |Tv(x)|^2\ dS \right) = ||g_1||_{L_2(\Gamma_1)} \times K_t||v||_{\SobolevSpace}$
+            \item $|\int_\omega f(x)vdx| \leq \left( \int_\Omega |f(x)|^2\ dx \right)^{\frac{1}{2}}  \left( \int_\Omega |v(x)|^2\ dx \right)^{\frac{1}{2}} =\\= ||f||_{L_2(\Omega)}||v||_{L_2(\Omega)}$
+            \item $|\int_{\Gamma_1}g_1(x)v\ dS| \leq \left( \int_{\Gamma_1} |g_1(x)|^2\ dS \right)^{\frac{1}{2}}  \left( \int_{\Gamma_1} |Tv(x)|^2\ dS \right) =\\= ||g_1||_{L_2(\Gamma_1)} \times K_t||v||_{\SobolevSpace}$
         \end{itemize}
-    \item $a(\cdot, \cdot)$ je omezená $|a(u,v)| = \left| \int_\Omega \sum_{i,j=1}^n a_{ij}(x)\frac{\partial u}{\partial x_j}\frac{\partial v}{\partial x_i} + q(x)uv \ dx   \right| \break \leq K_{a,q} \left( \sum_{i,j=1}^n \left|| \frac{\partial u}{\partial x_j}\right||_{L_2(\Omega)} \left||\frac{\partial v} {\partial x_i} \right||_{L_2(\Omega)} + ||u||_{L_2(\Omega)} ||v||_{L_2(\Omega)}  +  \right) \leq K_{a,q}(u^2 + 1) ||u||_{\SobolevSpace} ||v||_{\SobolevSpace}$
-    \item $a(\cdot,\cdot)$ je V-eliptická: $a(u,u) = \sum_{i,j=1}^n a_{ij}(x)\frac{\partial u}{\partial x_j}\frac{\partial u}{\partial x_i} + q(x)u^2 dx = (chybi barevne) \implies a(n,n)\geq c_0 \sum_{i=1}^n \int_\Omega \left|  \frac{\partial u}{\partial x_i}    \right|^2\ dx + d_0 \int_\Omega|i|^2\ dx \geq min \{c_0, d_0 \} ||u||^2_{\SobolevSpace}$
+    \item $a(\cdot, \cdot)$ je omezená:\\ $|a(u,v)| = \left| \int_\Omega \sum_{i,j=1}^n a_{ij}(x)\frac{\partial u}{\partial x_j}\frac{\partial v}{\partial x_i} + q(x)uv \ dx   \right| \leq \\ \leq K_{a,q} \left( \sum_{i,j=1}^n \left|| \frac{\partial u}{\partial x_j}\right||_{L_2(\Omega)} \left||\frac{\partial v} {\partial x_i} \right||_{L_2(\Omega)} + ||u||_{L_2(\Omega)} ||v||_{L_2(\Omega)}  +  \right) \leq \\ \leq K_{a,q}(u^2 + 1) ||u||_{\SobolevSpace} ||v||_{\SobolevSpace}$
+    \item $a(\cdot,\cdot)$ je V-eliptická:\\ $a(u,u) = \sum_{i,j=1}^n a_{ij}(x)\frac{\partial u}{\partial x_j}\frac{\partial u}{\partial x_i} + q(x)u^2 dx = (chybi barevne) \implies \\ \implies a(n,n)\geq c_0 \sum_{i=1}^n \int_\Omega \left|  \frac{\partial u}{\partial x_i}    \right|^2\ dx + d_0 \int_\Omega|i|^2\ dx \geq \\ \geq min \{c_0, d_0 \} ||u||^2_{\SobolevSpace}$
 \end{itemize}
 
 \end{remark}
@@ -69,19 +69,19 @@ Nechť $V_h \subset \subset V$ je konečně-rozměrný podprostor V a hledáme a
 Nechť pro $a(.,.)$ a $F$ platí výše uvedené předpoklady a $z$ řeší \refII . Pak pro řešení $z_h$ úlohy \refIII platí 
 \begin{equation}
     ||z_h - z||_V \leq \frac{K}{\alpha} min\{||z - v||_V | v\in V_h \}
-\end{equation}
+\end{equation} 
 \end{theorem}
 
 \begin{proof}
-    
-z \refII a \refIII platí $a(z,v) = F(v) \and a(z_h, v) = F(v)$ pro $v\in V_h  \implies a(z,v) - a(z_h,v)=0 \implies a(z - z_h, v)= 0$
-
-Platí že $a(\cdot,\cdot)$ je V-eliptická: $\alpha ||z - z_h||^2_v \leq a(z-z_h, z-z_h) = \text{vkládáme} v \in V_h = a(z-v, z-z_h) + a(v-z_h, z-z_h) = (\star)$
-
-Platí že $z-v \in V$ a $v - z_h \in V_h$, dále vidíme že druhý sčítanec je 0 díky prvnímu řádku důkazu. 
-
-$(\star) \leq a(z-v, z-z_h) \leq K ||z-v||_V ||z-z_h||_V \implies \alpha||z-z_h||_V \leq K ||z-v||_V \forall v\in V_h$ (konečně rozměrný)
-$\implies ||z-z_h||_V  \leq \frac{K}{\alpha} min\{||z-v||_V |v\in V_h  \}$
+    \ \\
+    Z \refII a \refIII platí $a(z,v) = F(v) \wedge a(z_h, v) = F(v)$ pro $ v\in V_h  \implies \\ \implies a(z,v) - a(z_h,v)=0 \implies a(z - z_h, v)= 0$
+    \\
+    Platí že $a(\cdot,\cdot)$ je V-eliptická:\\ $\alpha ||z - z_h||^2_v \leq a(z-z_h, z-z_h) = \text{vkládáme } v \in V_h = a(z-v, z-z_h) + a(v-z_h, z-z_h) = (\star)$
+    \\
+    Platí že $z-v \in V$ a $v - z_h \in V_h$, dále vidíme že druhý sčítanec je 0 díky prvnímu řádku důkazu. 
+    \\
+    $(\star) \leq a(z-v, z-z_h) \leq K ||z-v||_V ||z-z_h||_V \implies \\ \implies \alpha||z-z_h||_V \leq K ||z-v||_V \forall v\in V_h$ (konečně rozměrný)
+$\implies \\ \implies ||z-z_h||_V  \leq \frac{K}{\alpha} min\{||z-v||_V |v\in V_h  \}$
 \end{proof}
 
 \todo{Tady možná ten obrázek koule lol}
