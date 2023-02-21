@@ -7,47 +7,52 @@
 \subsection{Značení}
 
 
-$\Omega \subset \mathbb{R}^n$ omezená oblast
 
-$\partial\Omega$ Liepschitzovská oblast - lze pokrýt konečně mnoha grafy Liepschitzovských zobrazení ($|\phi(x) -  \phi(y)| < L ||x-y||$)
+\begin{itemize}
+    \item $\Omega \subset \mathbb{R}^n$ omezená oblast
 
-$\bar{\Omega}$ - uzávěr oblasti $\Omega$
+    \item $\partial\Omega$ Liepschitzovská oblast - lze pokrýt konečně mnoha grafy Liepschitzovských zobrazení, tj. $(|\phi(x) -  \phi(y)| < L ||x-y||)$
 
-$\mathcal{C}^{(k)}(\Omega)$ spojité funkce s derivacemi do k-tého řádu spojité na $\Omega$
+    \item $\bar{\Omega}$ - uzávěr oblasti $\Omega$
 
-$\mathcal{C}^{(\infty)}(\Omega)$ hladké funkce na $\Omega$
+    \item $\mathcal{C}^{(k)}(\Omega)$ spojité funkce s derivacemi do k-tého řádu spojité na $\Omega$
 
+    \item $\mathcal{C}^{(\infty)}(\Omega)$ hladké funkce na $\Omega$
 
-$\mathcal{C}^{(\infty)}_0(\Omega)$ hladké funkce na $\Omega$ s kompaktním nosičem
-
-
-$f\in\continuous{k}, \frac{\partial^{|\alpha|}}{\partial^{\alpha_1}x_1\partial^{\alpha_2}x_2...\partial^{\alpha_n}x_n} f = \mathcal{D}^\alpha, \alpha = [\alpha_1, \alpha_2, ..., \alpha_n], |\alpha|=\sum_i \alpha_i $
+    \item $\mathcal{C}^{(\infty)}_0(\Omega)$ hladké funkce na $\Omega$ s kompaktním nosičem
 
 
+    \item $f\in\continuous{k}, \frac{\partial^{|\alpha|}}{\partial^{\alpha_1}x_1\partial^{\alpha_2}x_2...\partial^{\alpha_n}x_n} f = \mathcal{D}^\alpha, \alpha = [\alpha_1, \alpha_2, ..., \alpha_n], |\alpha|=\sum_i \alpha_i $
+\end{itemize}
 
 
-Lebesgueovy prostory
-$\mathbb{L}_p(\Omega) = \{f: \Omega \mapsto \mathbb{R}| \text{měritelné}, \int_{\Omega}|f(x)|^p dx < +\infty \}$
+
+\subsubsection*{Lebesgueovy prostory}
+
+\begin{itemize}
+    \item $\mathbb{L}_p(\Omega) = \{f: \Omega \mapsto \mathbb{R}| \text{měritelné}, \int_{\Omega}|f(x)|^p dx < +\infty \}$
 $p \in <1, +\infty)$
 
-$\mathbb{L}_\infty(\Omega) = \{  f:\Omega\mapsto\mathbb{R} | \text{měřitelné}, (\exists K > 0)(s.v. x \in\Omega)(|f(x)| \leq K)  \}$
+\item $\mathbb{L}_\infty(\Omega) = \{  f:\Omega\mapsto\mathbb{R} | \text{měřitelné}, (\exists K > 0)(s.v. x \in\Omega)(|f(x)| \leq K)  \}$
+\end{itemize}
 
 
 \subsection{Vztahy}
 
-\subsubsection{Minkowskeho nerovnost}
+\subsubsection{Minkowského nerovnost}
 \begin{equation}\label{eq:Mink}
     \left ( \int_\Omega |f(x) + g(x)|^p dx \right ) ^{\frac{1}{p}} \leq \left ( \int_\Omega |f(x)|^p dx \right ) ^{\frac{1}{p}} + \left ( \int_\Omega |g(x)|^p dx \right ) ^{\frac{1}{p}}
 \end{equation}
 
 
 \subsubsection{Holderova nerovnost}
-$\left (  \frac{1}{p} + \frac{1}{q} = 1 \right ), f \in \mathbb{L}_p(\Omega), g \in \mathbb{L}_q(\Omega)$
+Nechť $\left (  \frac{1}{p} + \frac{1}{q} = 1 \right ), f \in \mathbb{L}_p(\Omega), g \in \mathbb{L}_q(\Omega)$
 \begin{equation}\label{eq:Holder}
     \int_\Omega \left| f(x)g(x) \right| dx \leq \left ( \int_\Omega |f(x)|^p dx \right ) ^{\frac{1}{p}} * \left ( \int_\Omega |g(x)|^q dx \right ) ^{\frac{1}{q}}
 \end{equation}
 
-Dále platí:
+\subsubsection{}
+Dále platí: \todo{Nějak tohle uprav ať to líp vypadá}
 
 $p_2 > p_1 \geq 1 \implies \mathbb{L}_{p_2}(\Omega) \subset \mathbb{L}_{p_1}(\Omega)$
 
@@ -104,11 +109,12 @@ $\Omega\subset\mathbb{R}^n$ - omezená oblast, $\partial \Omega$ - Liepschitzovs
 \includegraphics{images/oblast.PNG}
 
 \subsection{Výchozí vlastnosti}
-$f, g \in \mathcal{C}(\bar{\Omega})$
+\begin{itemize}
+    \item $f, g \in \mathcal{C}(\bar{\Omega})$
+    \item $a_{ij} \in \continuous[\bar{\Omega}]{1}$
+    \item $g_{0,1} \ in \mathcal{C}(\partial\Omega)$
+\end{itemize}
 
-$a_{ij} \in \continuous[\bar{\Omega}]{1}$
-
-$g_{0,1} \ in \mathcal{C}(\partial\Omega)$
 
 \subsection{Silně eliptický operátor}
 $(\exists C_0 > 0)(\forall \xi \in \mathbb{R}^n) (\forall x \in \Omega) (\sum_{i,j =1}^{n} a_{ij}(x)\xi^i \xi^j \geq c_0 \sum_{i = 1}^{n}|\xi^i|^2)$
@@ -126,11 +132,11 @@ Nechť $i\in \closedcontinuous{2}, v\in\closedcontinuous{\infty}, v|_{\Gamma_0 =
 \end{equation}
 Na první člen použijeme Greenovu identitu
 
-\begin{equation}
+\begin{multline}
     - \int_\Omega \sum_{i,j = 1}^{n}a_{ij}(x) \frac{\partial u }{\partial x_j} N_i v \ dS \
     + \int_\Omega \sum_{i,j = 1}^{n}a_{ij}(x)\frac{\partial u }{\partial x_j}\frac{\partial u }{\partial x_i}\ dx \
-    + \int_\Omega q(x)*u*v \ dx = \int_\Omega f*v \ dx 
-\end{equation}
+    + \int_\Omega q(x)*u*v \ dx =\\= \int_\Omega f*v \ dx 
+\end{multline}
 
 První člen díky \eqref{eq:PP1} a \eqref{eq:PP2} upravíme na $- \int_{\Gamma_1} g_1 v \ dS$ a pak ho přesuneme na druhou stranu. 
 

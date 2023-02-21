@@ -5,12 +5,30 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 
-\usepackage{graphics}
+\usepackage{amsthm}  %for \newtheorem command
 
+\usepackage{graphics} 
+
+\usepackage{todonotes}
 
 %Custom commands
 \newcommand{\continuous}[2][\Omega]{\mathcal{C}^{(#2)}(#1)}
 \newcommand{\closedcontinuous}[1]{\mathcal{C}^{(#1)}(\bar{\Omega})}
+
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definice}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Poznámka}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Věta}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}{Důsledek}[theorem]
+
+
+\renewcommand*{\proofname}{Důkaz:}
 
 
 \usepackage{subfiles}
