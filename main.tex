@@ -11,10 +11,26 @@
 
 \usepackage{todonotes}
 
+\usepackage{tikz}
+
+
+% for subfile environment
+\usepackage{caption}
+\usepackage{subcaption}
+
 %Custom commands
 \newcommand{\continuous}[2][\Omega]{\mathcal{C}^{(#2)}(#1)}
 \newcommand{\closedcontinuous}[1]{\mathcal{C}^{(#1)}(\bar{\Omega})}
 \newcommand{\SobolevSpace}{\mathbb{W}_2^{(1)}(\Omega)}
+
+
+% Proof environment definitions 
+
+\newtheoremstyle{break}
+  {\topsep}{\topsep}%
+  {\itshape}{}%
+  {\bfseries}{}%
+  {\newline}{}%
 
 
 \theoremstyle{definition}
@@ -23,7 +39,7 @@
 \theoremstyle{remark}
 \newtheorem*{remark}{Poznámka}
 
-\theoremstyle{plain}
+\theoremstyle{break}
 \newtheorem{theorem}{Věta}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}{Důsledek}[theorem]
@@ -38,6 +54,19 @@
 
 
 \usepackage{subfiles}
+
+
+
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
 
 \begin{document}
 

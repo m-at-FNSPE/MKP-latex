@@ -86,11 +86,10 @@ $\implies \\ \implies ||z-z_h||_V  \leq \frac{K}{\alpha} min\{||z-v||_V |v\in V_
 
 \todo{Tady možná ten obrázek koule lol}
 
-\subsection{Postup MKP pro řešení \refI na konkrétní oblasti $\Omega\subset\mathbb{R}^n$}
+\subsection{Postup MKP pro řešení \refI na konkrétní oblasti}
 
-\refII $a(z,v) = F_v \forall v \in V$ 
+Z \refII máme $a(z,v) = F_v \forall v \in V$ 
 
-\todo{OBRAZEK}
 
 \begin{enumerate}
     \item Diskretizace $\Omega$ 
@@ -101,7 +100,35 @@ $\implies \\ \implies ||z-z_h||_V  \leq \frac{K}{\alpha} min\{||z-v||_V |v\in V_
     \item Konstrukce prostrou $V_h$ - určíme bázi $V_h =  [\phi_1, \phi_2, ... , \phi_n ]_\lambda$, kde $\phi_j$ budou po částech lineární (nebo později polynomiální) tak, aby $\phi_j$ byly $=1$ v jednom uzlu a $=0$ ve všech ostatních
 \end{enumerate}
 
-\todo{Obrázek pro bod 2}
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \begin{tikzpicture}
+
+
+
+        \end{tikzpicture}
+        \caption{Diskretizace $\Omega$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \filldraw[color=red!60, fill=red!5, very thick](-1,0) circle (1.5);
+        \end{tikzpicture}
+        \caption{Vztah $\phi_j$ a $\phi_k$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \filldraw[color=red!60, fill=red!5, very thick](-1,0) circle (1.5);
+        \end{tikzpicture}
+        \caption{Graf funkce $\phi_j$}
+    \end{subfigure}
+\end{figure}
 
 
 
