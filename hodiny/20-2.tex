@@ -100,43 +100,26 @@ Z \refII máme $a(z,v) = F_v \forall v \in V$
     \item Konstrukce prostrou $V_h$ - určíme bázi $V_h =  [\phi_1, \phi_2, ... , \phi_n ]_\lambda$, kde $\phi_j$ budou po částech lineární (nebo později polynomiální) tak, aby $\phi_j$ byly $=1$ v jednom uzlu a $=0$ ve všech ostatních
 \end{enumerate}
 
-
+\todo{Možná vyměň obrázky}
 \begin{figure}
     \centering
-    \begin{subfigure}[b]{0.3\textwidth}
+    \begin{subfigure}[bt]{0.3\textwidth}
         \centering
-        \begin{tikzpicture}
-
-
-
-        \end{tikzpicture}
-        \caption{Diskretizace $\Omega$}
+        \includegraphics[width=1\textwidth]{images/diskretizace.png}
+        \caption{Diskretizace $\Omega$ \hfill\break Bíla je původní oblast,\hfill\break žlutě základní rozdělení,\hfill\break červeně zjemnění \hfill}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{0.3\textwidth}
+    \begin{subfigure}[t]{0.3\textwidth}
         \centering
-        \begin{tikzpicture}
-            \filldraw[color=red!60, fill=red!5, very thick](-1,0) circle (1.5);
-        \end{tikzpicture}
+        \includegraphics[width=1\textwidth]{images/vztahphi.png}
         \caption{Vztah $\phi_j$ a $\phi_k$}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{0.3\textwidth}
+    \begin{subfigure}[t]{0.3\textwidth}
         \centering
-        \begin{tikzpicture}
-            \filldraw[color=red!60, fill=red!5, very thick](-1,0) circle (1.5);
-        \end{tikzpicture}
+        \includegraphics[width=1\textwidth]{images/grafphi.png}
         \caption{Graf funkce $\phi_j$}
     \end{subfigure}
 \end{figure}
-
-
-
-
-
-
-
-
-
 
 \end{document}
