@@ -93,11 +93,26 @@ Z \refII máme $a(z,v) = F_v \forall v \in V$
 
 \begin{enumerate}
     \item Diskretizace $\Omega$ 
-    \begin{enumerate}
+    \begin{itemize}
         \item základní rozdělení $\Omega$ podle jejího tvaru
         \item Pravidlo zjemňování, např. podle středů stran
-    \end{enumerate}
-    \item Konstrukce prostrou $V_h$ - určíme bázi $V_h =  [\phi_1, \phi_2, ... , \phi_n ]_\lambda$, kde $\phi_j$ budou po částech lineární (nebo později polynomiální) tak, aby $\phi_j$ byly $=1$ v jednom uzlu a $=0$ ve všech ostatních
+    \end{itemize}
+
+    \item\begin{itemize}
+        \item Konstrukce prostrou $V_h$ - určíme bázi $V_h =  [\phi_1, \phi_2, ... , \phi_n ]_\lambda$, kde $\phi_j$ budou po částech lineární (nebo později polynomiální) tak, aby $\phi_j$ byly $=1$ v jednom uzlu a $=0$ ve všech ostatních
+        \item Zároveň platí že $supp \phi_j \cap \phi_k \neq \emptyset$ pro sousední uzly
+    \end{itemize}
+
+    \item\begin{itemize}
+        \item Konstrukce soustavy algebraických rovnic pro nalezení Galerkinovy aproximace $z_h \in V_k$
+        \item tj. hledáme $z_n = \sum_{j=1}^D \alpha_j \phi_j$ a za $v$ dosadíme $\phi_l, l=1,2...,D \implies a(\sum_{j=1}^D \alpha_j \phi_j, \phi_l) = F(\phi_l), l = 1,...,D$
+        \item $\implies (\alpha_j)^D_{j=1}$ nalezneme ze soustavy lineárních rovnic:
+            \begin{equation}\label{soustavarovnic}
+                \sum_{j=1}^D \alpha_j a(\phi_j, \phi_k) = F(\phi_l)
+            \end{equation}
+        \item kde $ a(\phi_j, \phi_k) = \int_\Omega \sum^2_{i,k=1} a_{ik}(x) \frac{\partial \phi_j}{\partial x_i} \frac{\partial\phi_l}{\partial x_k} + q(x) \phi_j \phi_l \ dx = 0$ pro $(supp \phi_j)^\circ \cap (supp \phi_k)^\circ = \emptyset$
+        \item $\implies$ matice soustavy \refIV je řídká. 
+    \end{itemize}
 \end{enumerate}
 
 \todo{Možná vyměň obrázky}
