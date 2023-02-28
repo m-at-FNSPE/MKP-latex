@@ -3,29 +3,37 @@
 \begin{document}
 
 
+
 Vlastnost aproximace $z_h$:
 \begin{equation}
     z_h(x_J) = \sum_{j=1}^D \alpha_j \phi_j (x_j)= \sum_{j=1}^D \alpha_j \delta_{jJ} = \alpha_J
 \end{equation}
 
-\begin{remark}[Zpracování zaoblených částí $\partial\Omega$]
-    \begin{figure}
-        \centering
-        \begin{subfigure}[bt]{0.5\textwidth}
-            \centering
-            \includegraphics[width=1\textwidth]{images/diskretizace.png}
-            \caption{Diskretizace $\Omega$ \hfill\break Bíla je původní oblast,\hfill\break žlutě základní rozdělení,\hfill\break červeně zjemnění \hfill}
-        \end{subfigure}
-        \hfill
-        \begin{subfigure}[t]{0.5\textwidth}
-            \centering
-            \includegraphics[width=1\textwidth]{images/vztahphi.png}
-            \caption{Vztah $\phi_j$ a $\phi_k$}
-        \end{subfigure}
-    \end{figure}
+\newpage
 
-Buď se modré částí z \ref{obrazek} se převedou pomocí konformních zobrazení na $\triangle$ nebo tvar $\Omega$ aproximujeme polygonem, viz \ref{dalsi obrazek}
+\begin{remark}[Zpracování zaoblených částí $\partial\Omega$] 
+\hfill\break
+Buď se modré částí z \ref{obrazekzaoblenaoblast} se převedou pomocí konformních zobrazení na $\triangle$ nebo tvar $\Omega$ aproximujeme polygonem, viz \ref{obrazekaproximacezaoblenitrojuhelnikem}
 \end{remark}
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[t]{0.49\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{images/obrazekzaoblenaoblast.png}
+        \caption{Příklad zaoblené oblasti}
+        \label{obrazekzaoblenaoblast}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.49\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{images/aproximacezaoblenitrojuhelnikem.png}
+        \caption{Aproximace zaoblení trojúhelníky}
+        \label{obrazekaproximacezaoblenitrojuhelnikem}
+    \end{subfigure}
+    \caption{}
+\end{figure}
+
 
 \begin{example}[MKP v 1D]
     Okrajová úloha (tj. \refI)
@@ -37,14 +45,33 @@ Buď se modré částí z \ref{obrazek} se převedou pomocí konformních zobraz
     \end{equation}
 
     Variační formulace (tj. \refII):
-    \begin{equation}\label{variacniformulace1d}
-        a(u,v) = \int_a^b p(x)u'v' + q(x)uv \ dx, F(v)=\int_a^b f(x)v \ dx \implies V = \{v\in\mathbb{W}_2^{(1)}(a,b)| v|_{x=a} = 0  \}, a(u,v) = F(v) \forall v\in V
-    \end{equation}
+    \begin{multline}\label{variacniformulace1d}
+        a(u,v) = \int_a^b p(x)u'v' + q(x)uv \ dx, F(v)=\int_a^b f(x)v \ dx  \implies\\ \implies V = \{v\in\mathbb{W}_2^{(1)}(a,b)| v|_{x=a} = 0  \}, a(u,v) = F(v) \forall v\in V
+    \end{multline}
 
-    MKP pro \ref{variacniformulace1d}: (a,b) dělíme stejnoměrně (viz obrázek \ref{jestejednenobrazek}) kde $h=\frac{b-a}{D}$
+    MKP pro \ref{variacniformulace1d}: (a,b) dělíme stejnoměrně (viz obrázek \ref{obrazekdiskretizace}) kde $h=\frac{b-a}{D}$
 
-    Dostáváme funkce $\phi_k$ jako v obrázku \ref{jesetedalsiobrazek}
+    Dostáváme funkce $\phi_k$ jako v obrázku \ref{obrazekfunkcephik}
 
+    \begin{figure}[ht]
+        \centering
+        \begin{subfigure}[t]{0.49\textwidth}
+            \centering
+            \includegraphics[width=1\textwidth]{images/funkcephik.png}
+            \caption{Funkce $\phi_k$ na 1D oblasti}
+            \label{obrazekfunkcephik}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[t]{0.49\textwidth}
+            \centering
+            \includegraphics[width=1\textwidth]{images/rozdeleni.png}
+            \caption{Příklad diskretizace 1D oblasti}
+            \label{obrazekdiskretizace}
+        \end{subfigure}
+        \caption{}
+    \end{figure}
+
+    
     Z toho vidíme že platí:
     \begin{equation}
         a(\phi_j, \phi_k)=
@@ -68,17 +95,17 @@ Buď se modré částí z \ref{obrazek} se převedou pomocí konformních zobraz
 
 
 Pak:
-\begin{equation}
-    a(\phi_j, \phi_j) = \int_{x_{j-1}}^{x_j} p(x) \left( \frac{1}{x_j - x_{j-1}} \right)^2 + q(x) \left( \frac{x-x_{j-1}}{x_j-x_{j-1}} \right)^2 \ dx + \int_{x_j}^{x_{j+1}} p(x) \left( \frac{-1}{x_{j+1} - x_j} \right)^2 + q(x) \left(\frac{x_{j+1}-x}{x_{j+1} - x_j}\right)^2 \ dx 
-\end{equation}
+\begin{multline}
+    a(\phi_j, \phi_j) = \int_{x_{j-1}}^{x_j} p(x) \left( \frac{1}{x_j - x_{j-1}} \right)^2 + q(x) \left( \frac{x-x_{j-1}}{x_j-x_{j-1}} \right)^2 \ dx +\\+ \int_{x_j}^{x_{j+1}} p(x) \left( \frac{-1}{x_{j+1} - x_j} \right)^2 + q(x) \left(\frac{x_{j+1}-x}{x_{j+1} - x_j}\right)^2 \ dx 
+\end{multline}
 
-\begin{equation}
-    a(\phi_j, \phi_{j-1}) = \int_{x_{j-1}}^{x_j}  p(x) \left( \frac{1}{x_j - x_{j-1}} \right)  \left( \frac{-1}{x_{j} - x_{j-1}} \right) + q(x) \left( \frac{x-x_{j-1}}{x_j-x_{j-1}} \right) \left( \frac{x_j -x}{x_{j} - x_{j-1}} \right) \ dx
-\end{equation}
+\begin{multline}
+    a(\phi_j, \phi_{j-1}) = \int_{x_{j-1}}^{x_j}  p(x) \left( \frac{1}{x_j - x_{j-1}} \right)  \left( \frac{-1}{x_{j} - x_{j-1}} \right) +\\+ q(x) \left( \frac{x-x_{j-1}}{x_j-x_{j-1}} \right) \left( \frac{x_j -x}{x_{j} - x_{j-1}} \right) \ dx
+\end{multline}
 
-\begin{equation}
-    a(\phi_j, \phi_{j+1}) = \int_{x_{j}}^{x_{j+1}}  p(x) \left( \frac{-1}{x_{j+1} - x_{j}} \right)  \left( \frac{1}{x_{j+1} - x_{j}} \right) + q(x) \left( \frac{x_{j+1}-x}{x_{j+1}-x_{j}} \right) \left( \frac{x - x_j}{x_{j+1} - x_{j}} \right) \ dx
-\end{equation}
+\begin{multline}
+    a(\phi_j, \phi_{j+1}) = \int_{x_{j}}^{x_{j+1}}  p(x) \left( \frac{-1}{x_{j+1} - x_{j}} \right)  \left( \frac{1}{x_{j+1} - x_{j}} \right) +\\+ q(x) \left( \frac{x_{j+1}-x}{x_{j+1}-x_{j}} \right) \left( \frac{x - x_j}{x_{j+1} - x_{j}} \right) \ dx
+\end{multline}
 
 Použijeme substituci: 
 
@@ -90,17 +117,17 @@ Použijeme substituci:
 \end{equation}
 
 Pak: 
-\begin{equation}
-    a(\phi_j, \phi_j) = \int_0^1 p((x_j - x_{j-1})y + x_{j-1}) \frac{dy}{x_j - x_{j-1}} + \int_0^1 q((x_j - x_{j-1})y + x_{j-1}) y^2 (x_j - x_j-1) \ dy - \int_0^1 p(-(x_{j+1} - x_j)y + x_{j+1}) \frac{dy}{ x_{j+1 - x_j}} - \int_0^1 q(-(x_{j+1} - x_j)y + x_j+1) y^2 (x_{j+1 - x_j}) \ dy
-\end{equation}
+\begin{multline}
+    a(\phi_j, \phi_j) = \int_0^1 p((x_j - x_{j-1})y + x_{j-1}) \frac{dy}{x_j - x_{j-1}} +\\+ \int_0^1 q((x_j - x_{j-1})y + x_{j-1}) y^2 (x_j - x_j-1) \ dy -\\- \int_0^1 p(-(x_{j+1} - x_j)y + x_{j+1}) \frac{dy}{ x_{j+1 - x_j}} -\\- \int_0^1 q(-(x_{j+1} - x_j)y + x_j+1) y^2 (x_{j+1 - x_j}) \ dy
+\end{multline}
 
-\begin{equation}
-    a(\phi_j, \phi_{j-1}) = - \int_0^1 p((x_j - x_{j-1})y + x_{j-1}) \frac{dy}{x_j - x_{j-1}} - \int_0^1 q((x_j - x_{j-1})y + x_{j-1}) y(1-y) (x_j - x_j-1) \ dy
-\end{equation}
+\begin{multline}
+    a(\phi_j, \phi_{j-1}) = - \int_0^1 p((x_j - x_{j-1})y + x_{j-1}) \frac{dy}{x_j - x_{j-1}} -\\- \int_0^1 q((x_j - x_{j-1})y + x_{j-1}) y(1-y) (x_j - x_j-1) \ dy
+\end{multline}
 
-\begin{equation}
-    a(\phi_j, \phi_{j+1}) = \int_0^1 p(-(x_{j+1} - x_j)y + x_{j+1}) \frac{dy}{ x_{j+1 - x_j}} - \int_0^1 q(-(x_{j+1} - x_j)y + x_j+1) y(1-y) (x_{j+1 - x_j}) \ dy
-\end{equation}
+\begin{multline}
+    a(\phi_j, \phi_{j+1}) = \int_0^1 p(-(x_{j+1} - x_j)y + x_{j+1}) \frac{dy}{ x_{j+1 - x_j}} -\\- \int_0^1 q(-(x_{j+1} - x_j)y + x_j+1) y(1-y) (x_{j+1 - x_j}) \ dy
+\end{multline}
 
 Z toho je poznat že matice $a(\phi_j, \phi_l)$ je symetrická
 \end{example}
