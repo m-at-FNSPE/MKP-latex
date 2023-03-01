@@ -1,0 +1,122 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+
+
+\subsection{Příklad 9}
+Určete prvky matice lineární soustavy rovnic pro okrajovou úlohu řešenou\\ metodou konečných prvků
+\begin{equation}
+    -(\lambda(x)u')' + q(x)u = f(x) \text{ v } (a,b)
+\end{equation}
+\begin{equation}
+    u|_{x=a} = 0, u|_{x=b} = 0
+\end{equation}
+kde $a=2, b=3, \lambda(x) = 1+x, q(x)=2$ a síť MKP je rovnoměrná a daná uzly:
+\begin{equation}
+    x_j = a + jh, h=\frac{b-a}{m}
+\end{equation}
+kde $m\in \mathbb{N}$ je počet prvků diskretizující interval $(a,b)$, který je obecným parametrem.
+
+
+\subsubsection{Vzorce použité z přednášky}
+\begin{multline}\label{pr1:middle}
+    a(\phi_j, \phi_j) = \int_0^1 p((x_j - x_{j-1})y + x_{j-1}) \frac{dy}{x_j - x_{j-1}} +\\+ \int_0^1 q((x_j - x_{j-1})y + x_{j-1}) y^2 (x_j - x_{j-1}) \ dy -\\- \int_0^1 p(-(x_{j+1} - x_j)y + x_{j+1}) \frac{dy}{ x_{j+1} - x_j} -\\- \int_0^1 q(-(x_{j+1} - x_j)y + x_j+1) y^2 (x_{j+1} - x_j) \ dy
+\end{multline}
+\begin{multline}\label{pr1:bellow}
+    a(\phi_j, \phi_{j-1}) = - \int_0^1 p((x_j - x_{j-1})y + x_{j-1}) \frac{dy}{x_j - x_{j-1}} -\\- \int_0^1 q((x_j - x_{j-1})y + x_{j-1}) y(1-y) (x_j - x_{j-1}) \ dy
+\end{multline}
+\begin{multline}\label{pr1:above}
+    a(\phi_j, \phi_{j+1}) = \int_0^1 p(-(x_{j+1} - x_j)y + x_{j+1}) \frac{dy}{ x_{j+1} - x_j} -\\- \int_0^1 q(-(x_{j+1} - x_j)y + x_{j+1}) y(1-y) (x_{j+1} - x_j) \ dy
+\end{multline}
+
+
+\subsubsection{Řešení}
+Ze zadání vidíme následující užitečné vztahy:
+\begin{equation}\label{pr1:vztahhm}
+    h=\frac{1}{m}
+\end{equation}
+\begin{equation}\label{pr1:h}
+    x_j - x_{j-1} = h = x_{j+1} - x_j
+\end{equation}
+\begin{equation}\label{pr1:-2h}
+    x_{j-1}- x_{j+1} = -2h
+\end{equation}
+
+
+Dosazením zadání do \eqref{pr1:middle} a použitím \eqref{pr1:h} dostaneme:
+\begin{multline}
+    a(\phi_j, \phi_j) = \int_0^1 \left( 1 + hy + x_{j-1}\right) \frac{dy}{h} + \int_0^1 2 y^2 (h) \ dy -\\- \int_0^1 (1 -hy + x_{j+1}) \frac{dy}{ h} - \int_0^1 2 y^2 (h) \ dy
+\end{multline}
+\begin{equation}
+    a(\phi_j, \phi_j) = \int_0^1 \frac{1}{h}\left( 1 + hy + x_{j-1}\right)  +  2h y^2   -  \frac{1}{ h}(1 -hy + x_{j+1})  - 2h y^2 \ dy
+\end{equation}
+\begin{equation}
+    a(\phi_j, \phi_j) = \int_0^1 \frac{1 + x_{j-1}}{h}  + y +  2h y^2   -  \frac{1+ x_{j+1}}{ h} + y   - 2h y^2 \ dy
+\end{equation}
+\begin{equation}
+    a(\phi_j, \phi_j) = \int_0^1 \frac{x_{j-1}- x_{j+1}}{h}  + 2y +  0 y^2 \ dy
+\end{equation}
+Použijeme vztah \eqref{pr1:-2h}
+\begin{equation}
+    a(\phi_j, \phi_j) = \int_0^1 \frac{-2h}{h}  + 2y \ dy
+\end{equation}
+\begin{equation}
+    a(\phi_j, \phi_j) = \int_0^1 -2  + 2y \ dy
+\end{equation}
+\begin{equation}
+    a(\phi_j, \phi_j) = -2  + 1 = -1
+\end{equation}
+Stejným způsobem spočtěme \eqref{pr1:bellow}:
+\begin{equation}
+    a(\phi_j, \phi_{j-1}) = - \int_0^1 (1+hy + x_{j-1}) \frac{dy}{h} - \int_0^1 2 y(1-y) (h) \ dy
+\end{equation}
+
+\begin{equation}
+    a(\phi_j, \phi_{j-1}) = - \int_0^1 \frac{1+ x_{j-1}}{h} + y  + 2h y(1-y) \ dy
+\end{equation}
+
+\begin{equation}
+    a(\phi_j, \phi_{j-1}) = - \int_0^1 \frac{1+ x_{j-1}}{h} + (1+2h)y - 2h y^2 \ dy
+\end{equation}
+
+\begin{equation}
+    a(\phi_j, \phi_{j-1}) = -  \frac{1+ x_{j-1}}{h} - \frac{(1+2h)}{2} + \frac{2h}{3}
+\end{equation}
+Dosaďme za $x_{j-1} = 2 + (j-1)h$ : 
+\begin{equation}
+    a(\phi_j, \phi_{j-1}) = -  \frac{3}{h} - (j-1) - \frac{(1+2h)}{2} + \frac{2h}{3}
+\end{equation}
+\begin{equation}
+    a(\phi_j, \phi_{j-1}) = -j + \frac{1}{2} -\frac{3}{h} -\frac{h}{3}
+\end{equation}
+Nakonec ještě použijeme \eqref{pr1:vztahhm}:
+\begin{equation}
+    a(\phi_j, \phi_{j-1}) = -j + \frac{1}{2} -3m -\frac{1}{3m}
+\end{equation}
+
+
+Pro \eqref{pr1:above} buď využijme toho že matice je symetrická nebo jednoduše spočtěme:
+\begin{equation}
+    a(\phi_j, \phi_{j+1}) = \int_0^1 (1 -hy + x_{j+1}) \frac{dy}{h} - \int_0^1 2h y(1-y) \ dy
+\end{equation}
+\begin{equation}
+    a(\phi_j, \phi_{j+1}) = \int_0^1 \frac{1 + x_{j+1}}{h} -y - 2h y(1-y) \ dy
+\end{equation}
+Opět dosaďme za $x_{j+1} = 2 + (j+1)h$ : 
+\begin{equation}
+    a(\phi_j, \phi_{j+1}) = \int_0^1 \frac{3 + (j+1)h}{h} -y - 2h y(1-y) \ dy
+\end{equation}
+\begin{equation}
+    a(\phi_j, \phi_{j+1}) = \int_0^1 \frac{3}{h} + (j+1) -(1+2h)y + 2hy^2 \ dy
+\end{equation}
+\begin{equation}
+    a(\phi_j, \phi_{j+1}) =  \frac{3}{h} + (j+1) -\frac{(1+2h)}{2} + \frac{2h}{3}
+\end{equation}
+A opět použijeme \eqref{pr1:vztahhm}:
+\begin{equation}
+    a(\phi_j, \phi_{j+1}) =  3m + j+ \frac{1}{2} - \frac{1}{3m}
+\end{equation}
+
+
+
+\end{document}
