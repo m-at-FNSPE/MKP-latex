@@ -43,7 +43,7 @@ Splnění požadavků Lax-Milgramovy věty:
             \item $|\int_{\Gamma_1}g_1(x)v\ dS| \leq \left( \int_{\Gamma_1} |g_1(x)|^2\ dS \right)^{\frac{1}{2}}  \left( \int_{\Gamma_1} |Tv(x)|^2\ dS \right) =\\= ||g_1||_{L_2(\Gamma_1)} \times K_t||v||_{\SobolevSpace}$
         \end{itemize}
     \item $a(\cdot, \cdot)$ je omezená:\\ $|a(u,v)| = \left| \int_\Omega \sum_{i,j=1}^n a_{ij}(x)\frac{\partial u}{\partial x_j}\frac{\partial v}{\partial x_i} + q(x)uv \ dx   \right| \leq \\ \leq K_{a,q} \left( \sum_{i,j=1}^n \left|| \frac{\partial u}{\partial x_j}\right||_{L_2(\Omega)} \left||\frac{\partial v} {\partial x_i} \right||_{L_2(\Omega)} + ||u||_{L_2(\Omega)} ||v||_{L_2(\Omega)}  +  \right) \leq \\ \leq K_{a,q}(u^2 + 1) ||u||_{\SobolevSpace} ||v||_{\SobolevSpace}$
-    \item $a(\cdot,\cdot)$ je V-eliptická:\\ $a(u,u) = \sum_{i,j=1}^n a_{ij}(x)\frac{\partial u}{\partial x_j}\frac{\partial u}{\partial x_i} + q(x)u^2 dx = (chybi barevne) \implies \\ \implies a(n,n)\geq c_0 \sum_{i=1}^n \int_\Omega \left|  \frac{\partial u}{\partial x_i}    \right|^2\ dx + d_0 \int_\Omega|i|^2\ dx \geq \\ \geq min \{c_0, d_0 \} ||u||^2_{\SobolevSpace}$
+    \item $a(\cdot,\cdot)$ je V-eliptická:\todo{chybi barevne}\\ $a(u,u) = \sum_{i,j=1}^n a_{ij}(x)\frac{\partial u}{\partial x_j}\frac{\partial u}{\partial x_i} + q(x)u^2 dx = (chybi barevne) \implies \\ \implies a(n,n)\geq c_0 \sum_{i=1}^n \int_\Omega \left|  \frac{\partial u}{\partial x_i}    \right|^2\ dx + d_0 \int_\Omega|i|^2\ dx \geq \\ \geq min \{c_0, d_0 \} ||u||^2_{\SobolevSpace}$
 \end{itemize}
 
 \end{remark}
@@ -52,7 +52,7 @@ Splnění požadavků Lax-Milgramovy věty:
 \subsection{Galerkinova metoda}\label{Galerkin}
 Galerkinova metoda pro přibližné řešení variační úlohy \refII $(\forall v \in V)(a(z,v) = F(v))$
 
-Nechť $V_h \subset \subset V$ je konečně-rozměrný podprostor V a hledáme aproximaci $z_h$ řešení $z$ úlohy \refII v prostoru $V_h$ tak, aby $(\forall v\in V_n)(a(z_n,v) = F(v))$ (tohle má mít referenci v textu zatím 3)
+Nechť $V_h \subset \subset V$ je konečně-rozměrný podprostor V a hledáme aproximaci $z_h$ řešení $z$ úlohy \refII v prostoru $V_h$ tak, aby $(\forall v\in V_n)(a(z_n,v) = F(v))$
 
 
 \begin{remark}
@@ -88,7 +88,7 @@ $\implies \\ \implies ||z-z_h||_V  \leq \frac{K}{\alpha} min\{||z-v||_V |v\in V_
 
 \subsection{Postup MKP pro řešení \refI na konkrétní oblasti}
 
-Z \refII máme $a(z,v) = F_v \forall v \in V$ 
+Z \refII máme $a(z,v) = F(v) \forall v \in V$ 
 
 
 \begin{enumerate}
