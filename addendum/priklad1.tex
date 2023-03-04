@@ -20,13 +20,13 @@ kde $m\in \mathbb{N}$ je počet prvků diskretizující interval $(a,b)$, který
 
 \subsubsection{Vzorce použité z přednášky}
 \begin{multline}\label{pr1:middle}
-    a(\phi_j, \phi_j) = \int_0^1 p((x_j - x_{j-1})y + x_{j-1}) \frac{dy}{x_j - x_{j-1}} +\\+ \int_0^1 q((x_j - x_{j-1})y + x_{j-1}) y^2 (x_j - x_{j-1}) \ dy -\\- \int_0^1 p(-(x_{j+1} - x_j)y + x_{j+1}) \frac{dy}{ x_{j+1} - x_j} -\\- \int_0^1 q(-(x_{j+1} - x_j)y + x_j+1) y^2 (x_{j+1} - x_j) \ dy
+    a(\phi_j, \phi_j) = \int_0^1 p((x_j - x_{j-1})y + x_{j-1}) \frac{dy}{x_j - x_{j-1}} +\\+ \int_0^1 q((x_j - x_{j-1})y + x_{j-1}) y^2 (x_j - x_{j-1}) \ dy -\\- \int_0^1 p(-(x_{j+1} - x_j)y + x_{j+1}) \frac{dy}{ x_{j+1} - x_j} -\\- \int_0^1 q(-(x_{j+1} - x_j)y + x_{j+1}) y^2 (x_{j+1} - x_j) \ dy
 \end{multline}
 \begin{multline}\label{pr1:bellow}
     a(\phi_j, \phi_{j-1}) = - \int_0^1 p((x_j - x_{j-1})y + x_{j-1}) \frac{dy}{x_j - x_{j-1}} -\\- \int_0^1 q((x_j - x_{j-1})y + x_{j-1}) y(1-y) (x_j - x_{j-1}) \ dy
 \end{multline}
 \begin{multline}\label{pr1:above}
-    a(\phi_j, \phi_{j+1}) = \int_0^1 p(-(x_{j+1} - x_j)y + x_{j+1}) \frac{dy}{ x_{j+1} - x_j} -\\- \int_0^1 q(-(x_{j+1} - x_j)y + x_{j+1}) y(1-y) (x_{j+1} - x_j) \ dy
+    a(\phi_j, \phi_{j+1}) = - \int_0^1 p(-(x_{j+1} - x_j)y + x_{j+1}) \frac{dy}{ x_{j+1} - x_j} -\\- \int_0^1 q(-(x_{j+1} - x_j)y + x_{j+1}) y(1-y) (x_{j+1} - x_j) \ dy
 \end{multline}
 
 
@@ -97,26 +97,48 @@ Nakonec ještě použijeme \eqref{pr1:vztahhm}:
 
 Pro \eqref{pr1:above} buď využijme toho že matice je symetrická nebo jednoduše spočtěme:
 \begin{equation}
-    a(\phi_j, \phi_{j+1}) = \int_0^1 (1 -hy + x_{j+1}) \frac{dy}{h} - \int_0^1 2h y(1-y) \ dy
+    a(\phi_j, \phi_{j+1}) = - \int_0^1 (1 -hy + x_{j+1}) \frac{dy}{h} - \int_0^1 2h y(1-y) \ dy
 \end{equation}
 \begin{equation}
-    a(\phi_j, \phi_{j+1}) = \int_0^1 \frac{1 + x_{j+1}}{h} -y - 2h y(1-y) \ dy
+    a(\phi_j, \phi_{j+1}) = - \int_0^1 \frac{(1 -hy + x_{j+1}) }{h} + 2h y(1-y) \ dy
+\end{equation}
+\begin{equation}
+    a(\phi_j, \phi_{j+1}) = - \int_0^1 \frac{(1 + x_{j+1}) }{h} +(2h - 1)y - 2hy^2 \ dy
 \end{equation}
 Opět dosaďme za $x_{j+1} = 2 + (j+1)h$ : 
+
 \begin{equation}
-    a(\phi_j, \phi_{j+1}) = \int_0^1 \frac{3 + (j+1)h}{h} -y - 2h y(1-y) \ dy
+    a(\phi_j, \phi_{j+1}) = - \int_0^1 \frac{(3 + (j+1)h) }{h} + (2h - 1)y - 2hy^2 \ dy
 \end{equation}
 \begin{equation}
-    a(\phi_j, \phi_{j+1}) = \int_0^1 \frac{3}{h} + (j+1) -(1+2h)y + 2hy^2 \ dy
+    a(\phi_j, \phi_{j+1}) = - \left( \frac{(3 + (j+1)h) }{h} + \frac{2h - 1}{2} - \frac{2h}{3}\right)
 \end{equation}
 \begin{equation}
-    a(\phi_j, \phi_{j+1}) =  \frac{3}{h} + (j+1) -\frac{(1+2h)}{2} + \frac{2h}{3}
-\end{equation}
-A opět použijeme \eqref{pr1:vztahhm}:
-\begin{equation}
-    a(\phi_j, \phi_{j+1}) =  3m + j+ \frac{1}{2} - \frac{1}{3m}
+    a(\phi_j, \phi_{j+1}) = - \frac{(3 + (j+1)h) }{h} - \frac{1}{2} + \frac{2h}{6} 
 \end{equation}
 
+\begin{equation}
+    a(\phi_j, \phi_{j+1}) = - \frac{3}{h} - j - \frac{1}{2} + \frac{2h}{6} 
+\end{equation}
+
+
+A opět použijeme \eqref{pr1:vztahhm}:
+\begin{equation}
+    a(\phi_j, \phi_{j+1}) = - 3m - j - \frac{1}{2} + \frac{1}{3m} 
+\end{equation}
+
+\subsubsection{Výsledek}
+Nakonec tedy dostáváme:
+
+\begin{equation}
+    a(\phi_j, \phi_j) = -1
+\end{equation}
+\begin{equation}
+    a(\phi_j, \phi_{j-1}) = -j + \frac{1}{2} -3m -\frac{1}{3m}
+\end{equation}
+\begin{equation}
+    a(\phi_j, \phi_{j+1}) = - 3m - j - \frac{1}{2} + \frac{1}{3m} 
+\end{equation}
 
 
 \end{document}
