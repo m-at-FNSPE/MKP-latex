@@ -13,6 +13,7 @@
 
 \usepackage{tikz}
 
+\usepackage{tikzsymbols}
 
 % for subfile environment
 \usepackage{caption}
@@ -22,6 +23,7 @@
 \newcommand{\continuous}[2][\Omega]{\mathcal{C}^{(#2)}(#1)}
 \newcommand{\closedcontinuous}[1]{\mathcal{C}^{(#1)}(\bar{\Omega})}
 \newcommand{\SobolevSpace}{\mathbb{W}_2^{(1)}(\Omega)}
+\newcommand{\SingleFiniteElement}{(\mathcal{K}, \mathcal{P}, \mathcal{N})}
 
 
 % Proof environment definitions 
@@ -46,6 +48,7 @@
 \newtheorem{theorem}{Věta}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}{Důsledek}[theorem]
+\newtheorem{claim}{Tvrzení}[section]
 
 
 \renewcommand*{\proofname}{Důkaz:}
@@ -89,6 +92,8 @@
 \subfile{hodiny/27-2.tex}
 
 \subfile{hodiny/6-3.tex}
+
+\subfile{hodiny/13-3.tex}
 
 \newpage
 \newpage

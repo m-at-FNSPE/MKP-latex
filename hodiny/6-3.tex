@@ -131,17 +131,72 @@ Dostáváme následující:
 \begin{proof}
     Záměna proměnných tak, že $L(x) = L(\hat{x}, x_n) = x_n$ (kde $\hat{x} = [x_1,...,x_{n-1}]$), pak $V\equiv x_n = 0$
 
-    %Pak $P(x) = P(\hat{x},x_n) = \sum_{j=0}^\mathcal{D} \sum_{|\hat{j}| = 0}^{\mathcal{D}-j} c_{\hat{j}j}*\hat{x}^\hat{j}*x_n^j$
+    Pak $P(x) = P(\hat{x},x_n) = \sum_{j=0}^\mathcal{D} \sum_{|\hat{j}| = 0}^{\mathcal{D}-j} c_{\hat{j}j}\cdot\hat{x}^{\hat{j}}\cdot x_n^j$ 
+    kde $\hat{j}=\left[j_1,...,j_{n-1}\right], |\hat{j}| = \sum_{k=1}^{n-1}j_k$, $\hat{x}^{\hat{j}} = \prod_{l=1}^{n-1}x_l^{j_l}$
 
+    Z podmínky $P|_V = 0 \implies P|_V = P(\hat{x},0) = \sum_{j=0}^\mathcal{D} \sum_{|\hat{j}| = 0}^{\mathcal{D}-j} c_{\hat{j}j}\cdot\hat{x}^{\hat{j}}\cdot 0^j$    $\implies\sum_{|\hat{j}| = 0}^{\mathcal{D}-j} c_{\hat{j}0}\cdot\hat{x}^{\hat{j}}\equiv0, \forall\hat{x}\in\mathbb{R}^{n-1}$
 
+    $\implies c_{\hat{j}0} = 0 \forall j$
 
+    $\implies P(\hat{x},x_n) = \sum_{j=1}^\mathcal{D} \sum_{|\hat{j}| = 0}^{\mathcal{D}-j} c_{\hat{j}j}\cdot\hat{x}^{\hat{j}}\cdot x_n^j = x_n \sum_{j=1}^\mathcal{D} \sum_{|\hat{j}| = 0}^{\mathcal{D}-j} c_{\hat{j}j}\cdot\hat{x}^{\hat{j}}\cdot x_n^{j-1}$
+
+    $x_n$ je námi hledané $L(x)$, zbytek označme jako $Q(x)$
+\end{proof}
+
+\section{Nejpoužívanější typy konečných prvků}
+\begin{remark}
+    Ukážeme v $\mathbb{R}^2$, $\mathcal{K}$ bude simplex s vrcholy $z_1, z_2, z_3$.
+
+    Lineární polynom v $\mathbb{R}^2 : v_0(x_1,x_2) = a + bx_1 + cx_2 $ 
+    Kvadratický polynom v $\mathbb{R}^2 : v_0(x_1,x_2) = a + bx_1 + cx_2 + dx_1^2 + ex_1x_2 + fx_2^2 $
+\end{remark}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics{images/simplex3uzly.png}
+    \caption{Simplex ve 2D}
+\end{figure}
+
+\subsection{Lagrangeův prvek}
+Uzlové proměnné poskytují hodnoty funkcí v $\mathcal{P}$ ve vybraných uzlech
+
+\subsubsection{Lineární Lagrangeův prvek}
+$\mathcal{P}$ obsahuje nejvýše lineární polynomy v $\mathbb{R}^n$
+
+\begin{itemize}
+    \item $K$ je simplex $\checkmark$
+    \item $\mathcal{P}$ má dimenzi 3 $\checkmark$
+    \item Jako bázi $\mathcal{N}$ navrhneme  $N_1(v)=v(z_0), N_2(v) = v(z_1), N_3(v)=v(z_2)$
+\end{itemize} 
+
+\begin{lemma}
+    Pak $(K, \mathcal{P}, \mathcal{N})$ je KP
+\end{lemma}
+\begin{proof}
+       Ukážeme LN $(N_1,N_2,N_3)$ pomocí kritéria výše:
+
+       Nechť pro všechna $v\in\mathcal{P}: N_j(v) = 0, j\in\{1,2,3\}\implies v(z_j)=0$
+       
+       Argument jedné proměnné:
+
+       Protože $v(z_0)=0\wedge v(z_1)=0 \wedge v\in\mathcal{P}$ je lineární polynom $\implies v|_{V_1}$ je lineární polynom jedné proměnné
+
+       tj: $V_1 \equiv  \begin{cases}
+        x_1(s) &= z_0^1 + (z_1^1 - z_0^1)s \\
+        x_2(s) &= z_0^2 + (z_1^2 = z_0^2)s 
+    \end{cases}, s\in\mathbb{R}
+    \implies v|_{V_1} = v(x_1(s), x_2(s))$ je lineární polynom proměnné $\underline{s}$, přitom se rovná $0$ pro $ s=0,1$
+
+    $\implies v|_{V_1}\equiv 0$ všude na $V_1$
 
 \end{proof}
 
+\begin{lemma}[Redukční lemma]
+    $v(x_1, x_2) = L_1(x_1,x_2)\cdot\hat{v}(x_1,x_2)$, kde $V_1 \equiv L_1(x_1,x_2) = 0$, $\hat{v}$ má stupeň 0
 
+    Protože $L_1(z_2)\neq0 (z_2 \notin V_1)$ a přitom $v(z_2) = 0 \implies$ jedině $\hat{v}(z_2) = 0$
 
-
-
-
+    Předchozí implikuje: $\hat{v}\equiv0 \implies v\equiv0 \implies (N_1, N_2, N_3)$ jsou LN
+\end{lemma}
 
 \end{document}

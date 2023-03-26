@@ -1,0 +1,197 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+
+
+\begin{remark}[K lineárnímu Lagrangeovu prvku]
+
+    \begin{figure}[ht]
+        \centering
+        %\includegraphics{images/poznamkalinearnilagrangeprvek.png}
+        \caption{$N_j(v) = v(z_{j-1})$ opět vyjde že splníme definici konečného prvku}
+    \end{figure}
+    
+    K čemu to je? Porovnejme jak vypadá pokud budeme KP skládat
+
+    \begin{figure}[h]
+        \centering
+        \begin{subfigure}[t]{0.5\textwidth}
+            \centering
+            %\includegraphics[width=1\textwidth]{images/skladaniprvkuv1Duzlyvrozich.png}
+            \caption{Takto prvky vypadají v případě, že uzly jsou v rozích trojúhelníků. \break všimněme si že funkce je spojitá}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[t]{0.5\textwidth}
+            \centering
+            %\includegraphics[width=1\textwidth]{images/skladaniprvkuv1Duzlyvhranach.png}
+            \caption{Takto prvky vypadají v případě, že uzly nejsou v rozích trojúhelníků.\break Jsou spojité v jedné hodnotě ale jinak většinou nejsou.}
+        \end{subfigure}
+    \end{figure}
+
+    Většinou doporučujeme používat uzly v rozích z důvodů nespojitosti, ale existují příklady kdy se používá druhá možnost. Například se zmiňme o tzv. Cruzeix-Raviartův prvek. Ten se používá v problematice proudění u tzv. nekonformní metody konečných prvků.
+
+
+\end{remark}
+
+\subsection{Kvadratický Lagrangeův prvek}
+
+
+$\mathcal{P}$ obsahuje polynomy stupně menší než 2
+\begin{equation}
+    v\in\mathcal{P}\implies v(x_1,x_2) = a + bx_1 + cx_1 + dx_1^2 + ex_1x_2 + fx_2^2 \implies \dim\mathcal{P} = 6
+\end{equation}
+
+$\mathcal{N} = (N_1,...,N_6): N_j(v) = v(z_{j-1}), j=1,...,6$ pro $v\in C(\bar{K})$
+
+\begin{claim}
+    $\mathcal{N}$ je báze $\mathcal{P}^\#$
+\end{claim}
+
+\begin{proof}
+    \begin{figure}[ht]
+        \centering
+        %\includegraphics{images/kvadratickylagrprvek.png}
+        \caption{Kvadratický Lagrangeův prvek}
+    \end{figure}
+    
+
+    Použijeme opět kritérium: $(N_j(v) = 0 \forall j = 1,...,6) \implies v \equiv 0$.
+    
+    Tedy nechť: $v(z_5)=0, v(z_n) = 0, ..., v(z_0) = 0$
+
+    $V_1$ dána funkcionálem $L_1 : V_1 \equiv L_1(x_1,x_2) = 0$ a $\dim V_1 = 1$ a $v(z_0) =0, v(z_1) = 0, v(z_3)$, tj. Kvadratický polynom 1 proměnné se rovná 0 ve 3 bodech, $\implies v|_{V_1} \equiv 0$
+
+    Použijeme lemma o redukci: $v(x_1,x_2) = L_1(x_1,x_2)w_1(x_1,x_2)$, $w_1$ je lineární polynom, kde $L_1(z_j)\neq0$ pro $j=2,4,5$
+
+    Protože $v(z_j) = 0, j = 2,4,5 \implies w_1(z_j) = 0, j=2,4,5$
+
+    $w_1(z_2) = 0, w_1(z_4) = 0$ a $w_1|_{V_2}$ je lineární polynom jedné proměnné = 0 ve 2 bodech $\implies w_1|_{V_2}\equiv0\implies(V_2\equiv L_2(x_1,x_2)=0)\implies$
+    
+    $\implies w_1(x_1,x_2) = L_2(x_1,x_2)*w_2(x_1,x_2), w_2 \equiv \text{const}$ a $w_2(z_5) = 0 \implies v = L_1L_2w_2 \equiv 0$ všude $\implies \mathcal{N}$ je báze
+
+
+\end{proof}
+
+\begin{remark}[    Lagrangeovy prvky stupně $\mathcal{D}>2$]
+
+    \begin{figure}[h]
+        \centering
+        \begin{subfigure}[t]{0.5\textwidth}
+            \centering
+            %\includegraphics[width=1\textwidth]{images/lagrangeprvekstupen3.png}
+            \caption{Lagrangeovy prvky stupně 3}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[t]{0.5\textwidth}
+            \centering
+            %\includegraphics[width=1\textwidth]{images/lagrangeprvekstupen4.png}
+            \caption{Lagrangeovy prvky stupně 4}
+        \end{subfigure}
+    \end{figure}
+
+\end{remark}
+
+
+
+\subsection{Hermiteův prvek}
+
+\begin{figure}[ht]
+    \centering
+    %\includegraphics{images/hermiteuvprvek.png}
+    \caption{Hermiteův prvek}
+\end{figure}
+
+Funckionály v $\mathcal{N}$ používající hodnoty funkcí a jejich derivací (tj. $\mathcal{P}$ obsahuje alespoň kubické polynomy)
+
+Nechť tedy $\dim\mathcal{P}=10$ (kubické) $\implies \mathcal{N} = (N_1,...,N_{10}):$
+
+$N_j(v) = v(z_{j-1}, j = 1,2,3)$, $N_10(v) = v(z_3)$ a $v'(z_0)=\binom{N_4(v)}{N_5(v)}, v'(z_1)=\binom{N_6(v)}{N_7(v)}, v'(z_2)=\binom{N_8(v)}{N_9(v)},$
+
+\begin{claim}
+    $\mathcal{N}$ je báze $\mathcal{P}^\#$
+\end{claim}
+
+\begin{proof}
+    využití redukce: na $V_1$: $v|_{V_1}$ je kubický polynom 1 proměnné jehož 2 hodnoty a 2 derivace = 0.
+    $\implies v|_{V_1} \implies v=L_1w_1$, $w_1$ je Kvadratický
+
+    $w_1|_{V_2}$ je kvadratický (1 hodnota, 2 derivace = 0) $\implies w|_{V_2}\equiv0\implies w_1=L_2w_2, w_2$ je lineární, $w_2|_{V_3}$ je lineární polynom (derivace = 0) $\implies$ je konstantní.
+
+    Nakonec použijme $z_3 \implies v=L_1L_2L_3w_3\equiv0\implies\mathcal{N}$ je báze.
+\end{proof}
+
+Rozmysleme jak se přenáší $v'$ na $w'_{1,2}$
+
+
+\subsection{Argyrisův prvek}
+
+\begin{figure}[ht]
+    \centering
+    %\includegraphics{images/argyrisuvprvek.png}
+    \caption{Argyrisův prvek}
+\end{figure}
+Funckionály používající hodnoty 1. a 2. derivace argumentu.
+
+$\mathcal{P}$ obsahuje polynomy stupně menší nebo rovno 5 $\implies \dim\mathcal{P}=21$, tj. 
+
+$N_j(v) = v(z_{j-1}, j = 1,2,3)$, $v'(z_0)=\binom{N_4(v)}{N_5(v)}, v'(z_1)=\binom{N_6(v)}{N_7(v)}, v'(z_2)=\binom{N_8(v)}{N_9(v)}$, $v''(z_0)=\binom{N_10(v)N_12(v)}{N_12(v)N_11(v)}, v''(z_1)=\binom{N_13(v)N_15(v)}{N_15(v)N_14(v)}, v''(z_2)=\binom{N_16(v)N_17(v)}{N_17(v)N_18(v)}$, 
+$N_{19}(v) = \partial_n v(z_3),N_{20}(v) = \partial_n v(z_4),N_{21}(v) = \partial_n v(z_5)$, kde $\partial_n v(z_j) = v'(z_j)\cdot \vec{n}(z_j)$
+
+\begin{claim}
+    $\mathcal{N}$ je báze $\mathcal{P}^\#$
+\end{claim}
+
+
+\begin{remark}
+    Hermite/Agyris: používáme $v'(z_j)\in \mathbb{R}^2, v''(z_j)\in\mathbb{R}^{2,2}$, například $v'(z_j) = \binom{\partial_{x_1}v(z_j)}{\partial_{x_2}v(z_j)}$ nebo $v'(z_j) = \binom{\partial_{s_1}v(z_j)}{\partial_{s_2}v(z_j)}$.
+    Porovnání můžeme vidět v \ref{fig:lokalnivsglobalnibaze}
+    \begin{figure}[ht]
+        \centering
+        %\includegraphics{images/lokalnivsglobalnibaze.png}
+        \caption{Rozdíl mezi lokální a globální bází}
+        \label{fig:lokalnivsglobalnibaze}
+    \end{figure}
+
+\end{remark}
+
+\section{Interpolant}
+\begin{remark}
+    Obecnější funkce budeme promítat do $\mathcal{P}$ (nejdříve na jediném konečném prvku, pak na síti)
+\end{remark}
+\begin{definition}
+    Nechť $\SingleFiniteElement$ je konečný prvek, $\dim\mathcal{P}=d$, $(\Phi_1,...,\Phi_d)$ je uzlová báze, $D_{N_j}$ je definiční obor funkcionálu $N_j\in\mathcal{N}, j = 1,...,d$
+    
+    Pak výraz $y_k u  = \sum_{j=1}^d N_j(u)\Phi_j$ pro $u \in \bigcap_{j=1}^d D_{N_j}$ se nazývá \underline{lokální interpolant funkce $u$}
+\end{definition}
+
+\begin{remark}
+    Jde o souřadnicové vyjádření v bázi $(\Phi_1,...,\Phi_d)$, tj pro $\hat{u}\in\mathcal{P}$ je $\sum_{j=1}^d N_j(\hat{u}) \Phi_j = \hat{u}$, ale pro $\hat{i}\notin\mathcal{P}$ nikoliv
+\end{remark}
+
+\begin{example}
+    \begin{figure}[ht]
+        \centering
+        %\includegraphics{images/interpolant příklad.png}
+        \caption{}
+        \label{fig:interpolantpriklad}
+    \end{figure}
+
+
+    Lineární Lagrange $\SingleFiniteElement$, $N_1(v)= v(0,0), N_2(v) = v(1,0), N_3(v) = v(0,1)$
+
+    Určíme nulovou bázi, $\Phi_j(x_1,x_2) = c_{1j} + c_{2j}x_1 + c_{3j}x_2$: $N_j(\Phi_l) = \delta_{jl}$
+
+    Rovnice: \todo{fix align}
+    \begin{align}
+    j=1 & c_{11}  &                  & =            1 \hfill j=2     & c_{12}           & =  0 \hfill j=3 & c_{13}             &= 0 \\
+        & c_{11}  & + c_{21}         & =            0         & c_{12} + c_{22}  & =  1     & c_{13} + c_{23}    &= 0 \\
+        & c_{11}  &        + c_{31}  &  = 0          & c_{12} + c_{32}  & = 0      & c_{13} + c_{33}    &= 1 
+    \end{align}
+    Z čehož dostaneme:
+    \begin{equation}
+        \Phi_1(x_1,x_2) = 1-x_1-x_2 \hfill ,\Phi_2(x_1,x_2) = x_1 \hfill ,\Phi_3(x_1,x_2) = x_2
+    \end{equation}
+
+\end{example}
+
+\end{document}
