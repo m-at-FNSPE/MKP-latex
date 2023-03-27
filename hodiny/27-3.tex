@@ -1,0 +1,85 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+
+
+\begin{definition}
+    Nechť $\SingleFiniteElement$ a $(\tilde{\mathcal{K}}, \tilde{\mathcal{P}}, \tilde{\mathcal{N}})$ jsou KP, $F(x) = \mathbb{A}x + b$ je afinní zobrazení $\mathcal{K} \mapsto \tilde{\mathcal{K}}$, $\mathbb{A}$ je regulární.
+
+    Pokud: \begin{enumerate}
+        \item $F(\mathcal{K} = \tilde{\mathcal{K}})$
+        \item $F^* (\tilde{\mathcal{P}}) = \mathcal{P}$, kde $F^*(\tilde{v}) = \tilde{v}\cdot F $ pro $\tilde{v}\in\tilde{\mathcal{P}}$
+        \item $F_x (\mathcal{N}) = \tilde{\mathcal{N}}$, kde $(F_* N)(\tilde{v}) = N(\tilde{v}\cdot F)$ pro $N\in\mathcal{N}$
+    \end{enumerate}
+
+    Pak říkáme, že$\SingleFiniteElement$ a $(\tilde{\mathcal{K}}, \tilde{\mathcal{P}}, \tilde{\mathcal{N}})$ jsou afinně ekvivalentní. 
+
+    Budeme značit $\sim^A$
+
+\end{definition}
+
+\begin{example}[Lineární Lagrange]
+    $\bar{K_1} = \left[z_1, z_2, z_3\right]_\mathcal{H}, \bar{K_2} = \left[u_1, u_2, u_3\right]$
+
+    $\bar{K_1} = \left\{x\in\mathbb{R}^2| (\exists \alpha_1, \alpha_2, \alpha_3 \in <0,1>, \sum_{j=1}^3 \alpha_j=1)(x = \sum_{j=1}^3 \alpha_j z_j)\right\}$
+    
+    Pak $F(x) = F(\sum_{j=1}^3 \alpha_j z_j)  = \mathbb{A}(\sum_{j=1}^3 \alpha_j z_j) + b = \sum_{j=1}^3 \alpha_j \mathbb{A}z_j + 1 \cdot b =  \sum_{j=1}^3 \alpha_j \mathbb{A}z_j + \sum_{j=1}^3 \alpha_j b = \sum_{j=1}^3 \alpha_j(\mathbb{A} z_j + b)$
+
+    Tak vzniká soustava rovnic pro prvky $\mathbb{A}$ a $b$
+
+    $\mathbb{A} z_i + b = u_j, j = 1,2,3$ při zadaných $z_j, u_j, j=1,2,3$, řešitelné jednoznačně $\implies F(\bar{K_1} )= \bar{K_2}$
+
+    $\mathcal{P}_{1,2}$ polynomy stupně $\leq 1$ na $\bar{K_1}, \bar{K_2}$, pro $\tilde{v}\in\mathcal{P}_2$ je $(\tilde{v}\cdot F)(x) = \left\{ x\in\bar{K_1}\right\} = \tilde{v}(F_x)$ je polynom stupně $\leq 1$ na $\bar{K_1}$
+
+    $\implies F^* (\mathcal{P}_2) \subset \mathcal{P}_1$ a pro $v\in\mathcal{P_1} \implies v(x) = v(F^{-1}(\tilde{x}))$ polynom stupně $\leq 1 $ na $\bar{K_2} \implies v \cdot F^{-1} \in \mathcal{P}_2 \implies F^*(\mathcal{P}_2) = \mathcal{P}_1   $
+    
+    Pro $N_j \in \mathcal{N}_{K_1} \implies N_j(v) = v(z_j)$ a pro $\tilde{v}\in\mathcal{P}_2$ je $\tilde{v}(u_j) = \tilde{N}_j = \tilde{v}(F(z_j)) = (\tilde{v}\cdot F)(z_j) = N_j (\tilde{v}\cdot F) \implies \tilde{N}_j = F_*(N_j)$
+
+    Každé 2 line8rn9 Lagrangeovy prvky jsou afinně ekvivalentní. \todo{místo cdot to má být composition, asi předchozích pět řádku}
+\end{example}
+
+
+\begin{example}[Kvadratické Lagrangeovy prvky]
+    Pro $\sim^A$:
+
+    První bod:
+
+    $F = F(x)$ najdeme opět pomocí $z_j, u_j, j=1,2,3 \implies F(\bar{K}_1) = \bar{K}_2$
+
+    Druhý bod:
+
+    \begin{enumerate}
+        \item pro $\tilde{v} \in \mathcal{P}_2$ (stupně $\leq 2$) $\implies \tilde{v} \circ F(x)$ je stupně $\leq 2 $ na $\bar{K}_1$ $\implies \tilde{v} \circ F(x) \in \mathcal{P_1} \implies F^*(\mathcal{P}_2) \subset \mathcal{P}_1$
+        \item pro $v\in\mathcal{P}_1 \implies v(x) = v(F^{-1}(y)) = (v\circ F^{-1})(y)$
+    \end{enumerate} 
+    To dohromady dává $F^* (\mathcal{P}_2) = \mathcal{P}_1$
+
+    Třetí bod:
+
+    Nechť $N_j \in \mathcal{N}_1, j=1,2,3$, pak pro $\tilde{v}\in\mathcal{P}_2$ je $\tilde{v}(u_j) = \tilde{N}_j(\tilde{v}) = \tilde{v}(F(z_j)) = (\tilde{v}\circ F )(z_j ) = N_j (\tilde{v}\circ F) \implies F_*(N_j) = \tilde{N}_j$
+
+    Pro $\sim^A$ je tedy nutné, aby $u_j = F(z_j), j=4,5,6$, tj, barycentrick0 souřadnice musí být stejné $\implies $pak$ \tilde{N}_j = F_*(N_j),$ pro $j=4,5,6 \implies \sim^A$
+    
+\end{example}
+
+\begin{example}[Hermiteův prvek    ]
+
+
+    
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
