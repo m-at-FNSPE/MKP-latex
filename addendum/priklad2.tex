@@ -1,0 +1,82 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+
+\newcommand{\coloneq}{\mathrel{\resizebox{\widthof{$\mathord{=}$}}{\height}{ $\!\!\resizebox{1.2\width}{0.8\height}{\raisebox{0.23ex}{$\mathop{:}$}}\!\!=\!\!$ }}}
+\newcommand{\eqcolon}{\mathrel{\resizebox{\widthof{$\mathord{=}$}}{\height}{ $\!\!=\!\!\resizebox{1.2\width}{0.8\height}{\raisebox{0.23ex}{$\mathop{:}$}}\!\!$ }}}
+
+\begin{document}
+
+\section{Příklad 11}
+\subsection{Zadání}
+
+Nechť $\Omega\subset\mathbb{R}^n$ je omezená oblast, $n=2, p=2, k=5$. Dokažte ekvivalenci výrazů
+\begin{equation}%\label{leftside}
+     \sum_{|\alpha| \leq k} \| \mathcal{D}^\alpha u \|_{L_p(\Omega)}
+\end{equation}
+a
+\begin{equation}%\label{rightside}
+     \left( \sum_{|\alpha| \leq k} \int_\Omega | \mathcal{D}^\alpha(x)|^p dx\right)^\frac{1}{p}
+\end{equation}
+pro $u \in \mathbb{W}_p^{(k)}(\Omega)$. Nalezněte přitom konkrétní podobu konstant ekvivalence.
+
+\subsection{Řešení}
+Nejprve dosaďme zadání do výrazů, dostaneme: 
+\begin{equation}\label{leftside}
+    \| u \|_1 \coloneq \sum_{|\alpha| \leq 5} \| \mathcal{D}^\alpha u \|_{L_2(\Omega)} 
+\end{equation}
+a
+\begin{equation}\label{rightside}
+    \| u \|_2 \coloneq \left( \sum_{|\alpha| \leq 5} \int_\Omega | \mathcal{D}^\alpha(x)|^2 dx\right)^\frac{1}{2}
+\end{equation}
+
+V \eqref{leftside} poznáváme normu Sobelevova prostoru $\mathbb{W}_2^{(5)}$, můžeme ji rozepsat jako
+\begin{equation}
+    \| u \|_1 = \sum_{|\alpha| \leq 5} \left( \int_\Omega| \mathcal{D}^\alpha u |^2 \ dx  \right)^\frac{1}{2}
+\end{equation}
+
+Ukazujeme tedy ekvivalenci norem,\hfill\break tj. chceme ukázat že $\exists a,b \in \mathbb{R}$ tak, že $a\|u\|_2 \leq \|u\|_1 \leq b\|u\|_2$
+
+
+
+Ukažme první nerovnost: 
+\begin{equation*}
+     a \left( \sum_{|\alpha| \leq 5} \int_\Omega | \mathcal{D}^\alpha(x)|^2 dx\right)^\frac{1}{2} \leq  \sum_{|\alpha| \leq 5} \| \mathcal{D}^\alpha u \|_{L_2(\Omega)} 
+\end{equation*} 
+
+S použitím Minkowského nerovnosti máme:
+\begin{equation}
+    \sum_{|\alpha| \leq 5} \| \mathcal{D}^\alpha u \|_{L_2(\Omega)}  \geq  \| \sum_{|\alpha| \leq 5} \mathcal{D}^\alpha u \|_{L_2(\Omega)} =  \left(  \int_\Omega \left| \sum_{|\alpha| \leq 5} \mathcal{D}^\alpha(x)\right|^2 dx\right)^\frac{1}{2} \geq
+\end{equation}
+
+Dále využijeme faktu, že $ \left(\sum_i x_i\right)^2 \geq \sum_i \left( x_i\right)^2$
+
+\begin{equation}
+    \geq \left(  \int_\Omega  \sum_{|\alpha| \leq 5} \left|\mathcal{D}^\alpha(x)\right|^2 dx\right)^\frac{1}{2} = \left(  \sum_{|\alpha| \leq 5}\int_\Omega \left|  \mathcal{D}^\alpha(x)\right|^2 dx\right)^\frac{1}{2}
+\end{equation}
+
+Jako $a$ tedy můžeme zvolit $a=1$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Ukažme druhou nerovnost: 
+\begin{equation*}
+    \sum_{|\alpha| \leq 5} \left( \int_\Omega| \mathcal{D}^\alpha u |^2 \ dx  \right)^\frac{1}{2} \leq b \left( \sum_{|\alpha| \leq 5} \int_\Omega | \mathcal{D}^\alpha(x)|^2 dx\right)^\frac{1}{2}
+\end{equation*} 
+
+Víme, že platí 
+
+
+
+\end{document}
