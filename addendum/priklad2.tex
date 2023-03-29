@@ -61,21 +61,36 @@ Jako $a$ tedy můžeme zvolit $a=1$
 
 
 
-
-
-
-
-
-
-
-
-
 Ukažme druhou nerovnost: 
 \begin{equation*}
     \sum_{|\alpha| \leq 5} \left( \int_\Omega| \mathcal{D}^\alpha u |^2 \ dx  \right)^\frac{1}{2} \leq b \left( \sum_{|\alpha| \leq 5} \int_\Omega | \mathcal{D}^\alpha(x)|^2 dx\right)^\frac{1}{2}
 \end{equation*} 
 
-Víme, že platí 
+Využijeme toho že pro $y_i > 0, i\in\hat{n}$ platí
+\begin{equation}
+    \sqrt{\sum_{i=1}^{n}y_i} \geq \frac{1}{n} \sum_{i=1}^{n}\sqrt{y_i}
+\end{equation}
+
+Z toho máme:
+
+\begin{equation}
+    \left(\sum_{|\alpha|\leq5}\int_\Omega |\mathcal{D}^\alpha (x)^2| dx\right)^\frac{1}{2} \geq \frac{1}{\sum_{|\alpha|\leq5}1} \sum_{|\alpha| \leq 5} \left( \int_\Omega| \mathcal{D}^\alpha u |^2 \ dx  \right)^\frac{1}{2}
+\end{equation}
+
+Z toho vidíme:
+$$
+b = \sum_{|\alpha|\leq5}1 = 21
+$$
+
+
+
+Tedy nakonec platí:
+
+\begin{equation}
+    \|u\|_2 \leq \|u\|_1 \leq 21\|u\|_2
+\end{equation}
+
+
 
 
 
