@@ -1,0 +1,126 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+
+\begin{theorem}[Minkowského nerovnost]
+    \begin{equation}\label{eq:Mink}
+        \left ( \int_\Omega |f(x) + g(x)|^p dx \right ) ^{\frac{1}{p}} \leq \left ( \int_\Omega |f(x)|^p dx \right ) ^{\frac{1}{p}} + \left ( \int_\Omega |g(x)|^p dx \right ) ^{\frac{1}{p}}
+    \end{equation}
+\end{theorem}
+
+
+\begin{theorem}[Holderova nerovnost]
+    Nechť $\left (  \frac{1}{p} + \frac{1}{q} = 1 \right ), f \in \mathbb{L}_p(\Omega), g \in \mathbb{L}_q(\Omega)$
+    \begin{equation}\label{eq:Holder}
+        \int_\Omega \left| f(x)g(x) \right| dx \leq \left ( \int_\Omega |f(x)|^p dx \right ) ^{\frac{1}{p}} * \left ( \int_\Omega |g(x)|^q dx \right ) ^{\frac{1}{q}}
+    \end{equation}
+\end{theorem}
+
+
+
+\begin{theorem}[Vnoření $L_p$ prostorů]
+    
+
+
+    $p_2 > p_1 \geq 1 \implies \mathbb{L}_{p_2}(\Omega) \subset \mathbb{L}_{p_1}(\Omega)$
+    \end{theorem}
+    
+
+
+
+    \begin{theorem}[Věta o stopách]
+        $\Omega$ - omezená oblast, $\partial \Omega$ - Liepschitzovská
+        
+        $\exists_1 T: \mathbb{W}_2^{(1)}(\Omega) \mapsto \mathbb{L}_p (\partial \Omega), \text{omezený lineární operátor tak, že}$
+        
+        $ \forall f\in C (\bar \Omega), Tf = f /_{\partial \Omega} $
+    \end{theorem}
+    
+
+
+
+    \begin{theorem}[Lax-Milgramova věta]
+        Nechť V je Hilbertův prostor, $a(\cdot, \cdot)$ je bilineární forma, F je spojitý lineární funkcionál na V a platí:
+        \begin{enumerate}
+            \item $a(\cdot, \cdot)$ je omezená: $(\exists K>0)(\forall u,v \in V)(|a(u,v)|\leq K ||u|| ||v||)$
+            \item $a(\cdot, \cdot)$ je V-eliptická: $(\exists\alpha>0)(\forall v \in V)(a(u,u)\geq \alpha||u||^2)$
+        \end{enumerate}
+        Pak $(\exists_1z\in V)(\forall v \in V)(a(z,v) = F(v))$
+    \end{theorem}
+
+
+
+    \begin{theorem}[Céova]
+    
+
+        Nechť pro $a(.,.)$ a $F$ platí výše uvedené předpoklady a $z$ řeší slabou formulaci úlohy . Pak pro řešení $z_h$ úlohy Galerkinovou metodou platí 
+        \begin{equation}
+            ||z_h - z||_V \leq \frac{K}{\alpha} min\{||z - v||_V | v\in V_h \}
+        \end{equation} 
+        \end{theorem}
+
+
+
+
+
+        \begin{theorem}[MKP1]
+            Množina $\bar{\Omega}$ (z okrajové úlohy) je rozdělena triangulací $\mathcal{T}_h$ na konečný počet podmmnožin K (oblastí konečných prvků) tak, že 
+            \begin{enumerate}
+                \item $\bar{\Omega} = \bigcup_{K\in\mathcal{T}_h} \bar{K}$
+                \item $(\forall K  \in \mathcal{T}_h)(K\neq\emptyset \text{ a K je oblast})$
+                \item $(\forall K_1, K_2 \in \mathcal{T}_h)(K_1 \neq K_2 \implies K_1 \cap K_2 = \emptyset)$
+                \item $(\forall K \in \mathcal{T}_h) (\partial K \text{ je Lipschitzovská} )$
+            \end{enumerate}
+        \end{theorem}
+        
+        \begin{theorem}[MKP2]
+            Na každé množině $K\in\mathcal{T}_h$ definujeme vhodné funkce sloužící k aproximaci řešení variační úlohy (slabé formulace) . Tyto funkce jsou polynomy, nebo "blízké" polynomům
+        \end{theorem}
+        
+        
+        \begin{theorem}[MKP3]
+            Aproximaci řešení variační úlohy (slabé formulace)  hledáme pomocí bazických funkcí, jejichž nosič je co nejmenší při zachování shodného popisu tvaru těchto funckí. 
+        \end{theorem}
+        
+
+        \begin{lemma}[O redukci]
+            Nechť $\mathcal{P}$ je polynom stupně $\mathcal{D} \geq 1$ v $n$ proměnných, který je roven $0$ v nadrovině $V$, která je popsána funkcionálem $L\in(\mathbb{R}^n)^\#$ (tj. $V\equiv \left\{x\in\mathbb{R}^n| L(x)= 0\right\}$).
+            Pak existuje polynom $Q$ stupně $\mathcal{D} - 1$ tak, že $(\forall x\in\mathbb{R}^n)(P(x) = L(x)*Q(x))$    
+        \end{lemma}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
