@@ -1,5 +1,8 @@
 \documentclass[../main.tex]{subfiles}
 \graphicspath{{\subfix{../images/}}}
+
+\usepackage[left=2cm,right=2cm]{geometry}
+
 \begin{document}
 
 \begin{theorem}[Minkowského nerovnost]
@@ -215,10 +218,10 @@ $p_2 > p_1 \geq 1 \implies \mathbb{L}_{p_2}(\Omega) \subset \mathbb{L}_{p_1}(\Om
     Pak existuje $C_{V3} > 0$ tak, že $\forall u \in \mathbb{W}_p^{(m)}(\mathcal{K})$ a $\forall k = 0,...,m$ platí
 
     \begin{equation*}
-        \left|  u-Q^{(m)}u     \right|_{W_p^{(k)}\mathcal{K}} \leq C_{V3} d^{m-k} |u|_{W_p^{(m ?)}\mathcal{K}} 
+        \left|  u-Q^{(m)}u     \right|_{W_p^{(k)}\mathcal{K}} \leq C_{V3} d^{m-k} |u|_{W_p^{(m)}\mathcal{K}} 
     \end{equation*}
 
-    \todo{nejsem si jistý jestli to u ? má být m nebo k} 
+
 \end{theorem}
 
 
@@ -248,9 +251,9 @@ $p_2 > p_1 \geq 1 \implies \mathbb{L}_{p_2}(\Omega) \subset \mathbb{L}_{p_1}(\Om
 
 
     \begin{equation*}
-        |v - \mathcal{Y}_k v|_{\mathbb{W_p^{k ?}}(\mathcal{K})} \leq C_{V4} (diam \mathcal{K})^{m-i} |v|_{\mathbb{W}_p^{(m)} (\mathcal{K})}
+        |v - \mathcal{Y}_k v|_{\mathbb{W_p^{i}}(\mathcal{K})} \leq C_{V4} (diam \mathcal{K})^{m-i} |v|_{\mathbb{W}_p^{(m)} (\mathcal{K})}
     \end{equation*} 
-    \todo{nejsem si jistý jestli to u ? má být m nebo k} 
+
 
 \end{theorem}
 
@@ -290,7 +293,10 @@ $p_2 > p_1 \geq 1 \implies \mathbb{L}_{p_2}(\Omega) \subset \mathbb{L}_{p_1}(\Om
 \end{theorem}
 
 
+\begin{claim}
+    Nechť $\Omega\subset\mathbb{R}^n$ je omezená polyhedrální konvexní oblast. Pak řešení úlohy (s jednotkovou maticí a bez členu q, na tabuli 1L) je z $\mathbb{W}_2^{(2)}(\Omega)$
 
+\end{claim}
 
 
 
