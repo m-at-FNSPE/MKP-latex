@@ -1,0 +1,322 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+
+\usepackage[left=2cm,right=2cm]{geometry}
+
+\begin{document}
+
+\begin{theorem}[Minkowského nerovnost]
+\begin{equation}\label{eq:Mink}
+    \left ( \int_\Omega |f(x) + g(x)|^p dx \right ) ^{\frac{1}{p}} \leq \left ( \int_\Omega |f(x)|^p dx \right ) ^{\frac{1}{p}} + \left ( \int_\Omega |g(x)|^p dx \right ) ^{\frac{1}{p}}
+\end{equation}
+\end{theorem}
+
+
+\begin{theorem}[Holderova nerovnost]
+Nechť $\left (  \frac{1}{p} + \frac{1}{q} = 1 \right ), f \in \mathbb{L}_p(\Omega), g \in \mathbb{L}_q(\Omega)$
+\begin{equation}\label{eq:Holder}
+    \int_\Omega \left| f(x)g(x) \right| dx \leq \left ( \int_\Omega |f(x)|^p dx \right ) ^{\frac{1}{p}} * \left ( \int_\Omega |g(x)|^q dx \right ) ^{\frac{1}{q}}
+\end{equation}
+\end{theorem}
+
+
+
+\begin{theorem}[Vnoření $L_p$ prostorů]
+
+
+
+$p_2 > p_1 \geq 1 \implies \mathbb{L}_{p_2}(\Omega) \subset \mathbb{L}_{p_1}(\Omega)$
+\end{theorem}
+
+
+
+
+\begin{theorem}[Věta o stopách]
+    $\Omega$ - omezená oblast, $\partial \Omega$ - Liepschitzovská
+    
+    $\exists_1 T: \mathbb{W}_2^{(1)}(\Omega) \mapsto \mathbb{L}_p (\partial \Omega), \text{omezený lineární operátor tak, že}$
+    
+    $ \forall f\in C (\bar \Omega), Tf = f /_{\partial \Omega} $
+\end{theorem}
+
+
+
+
+\begin{theorem}[Lax-Milgramova věta]
+    Nechť V je Hilbertův prostor, $a(\cdot, \cdot)$ je bilineární forma, F je spojitý lineární funkcionál na V a platí:
+    \begin{enumerate}
+        \item $a(\cdot, \cdot)$ je omezená: $(\exists K>0)(\forall u,v \in V)(|a(u,v)|\leq K ||u|| ||v||)$
+        \item $a(\cdot, \cdot)$ je V-eliptická: $(\exists\alpha>0)(\forall v \in V)(a(u,u)\geq \alpha||u||^2)$
+    \end{enumerate}
+    Pak $(\exists_1z\in V)(\forall v \in V)(a(z,v) = F(v))$
+\end{theorem}
+
+
+
+\begin{theorem}[Céova]
+
+
+    Nechť pro $a(.,.)$ a $F$ platí výše uvedené předpoklady a $z$ řeší slabou formulaci úlohy . Pak pro řešení $z_h$ úlohy Galerkinovou metodou platí 
+    \begin{equation}
+        ||z_h - z||_V \leq \frac{K}{\alpha} min\{||z - v||_V | v\in V_h \}
+    \end{equation} 
+    \end{theorem}
+
+
+
+
+
+
+%  Asi spíš nejsou tvrzení? 
+        % \begin{theorem}[MKP1]
+        %     Množina $\bar{\Omega}$ (z okrajové úlohy) je rozdělena triangulací $\mathcal{T}_h$ na konečný počet podmmnožin K (oblastí konečných prvků) tak, že 
+        %     \begin{enumerate}
+        %         \item $\bar{\Omega} = \bigcup_{K\in\mathcal{T}_h} \bar{K}$
+        %         \item $(\forall K  \in \mathcal{T}_h)(K\neq\emptyset \text{ a K je oblast})$
+        %         \item $(\forall K_1, K_2 \in \mathcal{T}_h)(K_1 \neq K_2 \implies K_1 \cap K_2 = \emptyset)$
+        %         \item $(\forall K \in \mathcal{T}_h) (\partial K \text{ je Lipschitzovská} )$
+        %     \end{enumerate}
+        % \end{theorem}
+        
+        % \begin{theorem}[MKP2]
+        %     Na každé množině $K\in\mathcal{T}_h$ definujeme vhodné funkce sloužící k aproximaci řešení variační úlohy (slabé formulace) . Tyto funkce jsou polynomy, nebo "blízké" polynomům
+        % \end{theorem}
+        
+        
+        % \begin{theorem}[MKP3]
+        %     Aproximaci řešení variační úlohy (slabé formulace)  hledáme pomocí bazických funkcí, jejichž nosič je co nejmenší při zachování shodného popisu tvaru těchto funckí. 
+        % \end{theorem}
+        
+
+
+
+
+\begin{lemma}[O redukci]
+    Nechť $\mathcal{P}$ je polynom stupně $\mathcal{D} \geq 1$ v $n$ proměnných, který je roven $0$ v nadrovině $V$, která je popsána funkcionálem $L\in(\mathbb{R}^n)^\#$ (tj. $V\equiv \left\{x\in\mathbb{R}^n| L(x)= 0\right\}$).
+    Pak existuje polynom $Q$ stupně $\mathcal{D} - 1$ tak, že $(\forall x\in\mathbb{R}^n)(P(x) = L(x)*Q(x))$    
+\end{lemma}
+
+
+
+\begin{claim}
+    Lokální interpolant $\mathcal{Y}_k$ je lineární
+\end{claim}
+
+\begin{claim}
+    Pro lokální interpolant $\mathcal{Y}_k$ platí  $\mathcal{Y}_k * \mathcal{Y}_k = \mathcal{Y}_k$
+\end{claim}
+
+
+\begin{claim}
+    Nechť $\mathcal{T}$ je triangulace $\Omega$. Pak existuje volba uzlů na hranách $\mathcal{K}\in\mathcal{T}$ tak, že $\mathcal{Y}_k$ má řád spojitosti $n\in\mathbb{N}_0$ , kde:
+\begin{align}
+    r = 0 &  \text{ pro } m = 0    & \text{Lagrangeův prvek} \\ 
+    r = 0 &  \text{ pro } m = 1    & \text{Hermiteův prvek} \\ 
+    r = 1 &  \text{ pro } m = 2    & \text{Argyrisův prvek} \\ 
+\end{align}
+    Navíc platí, že $\forall u \in \mathcal{C}^{(m)}(\bar{\Omega}) (\mathcal{Y}_\mathcal{T}u\in \mathbb{W}_\infty^{(r+1)}(\Omega))$
+\end{claim}
+
+
+
+\begin{claim}
+    Pro každý typ Lagrangeova prvku daného stupně existuje afinně ekvivalentní rozmístění uzlů.
+\end{claim}
+
+
+\begin{claim}
+    $(\mathcal{K}, \mathcal{P}, \mathcal{N})$ interpolačně ekvivalentní s $({\mathcal{K}}, {\mathcal{P}}, \tilde{\mathcal{N}}) \Leftrightarrow [\mathcal{N}]_\lambda = [\tilde{\mathcal{N}}]_\lambda $
+\end{claim}
+
+
+\section{Vystředované Taylorovy polynomy}
+
+
+\begin{claim}[T1]
+    Vystředovaný Taylorův polynom $Q^{(m)} u(x)$ je polynom stupně $m-1$ v proměnné x
+\end{claim}
+
+
+\begin{claim}[T2]
+    Pokud $u \in L_1(B(x_0, \varrho))$, pak $Q^{(m)} u(x)$ má smysl 
+\end{claim}
+
+\begin{claim}[T3]
+    Je-li $\mathcal{K} \subset \mathbb{R}^n$ omezená, pak $Q^{(M)}: L_1(K) \mapsto \mathbb{W}^{(i)}_\infty$ pro pevné $i\in\mathbb{N}_0$ je lineární omezený operátor.
+\end{claim}
+
+
+\begin{claim}[T4]
+    Nechť $m\in\mathbb{N}, \alpha\in\mathbb{N}^n_0, |\alpha|\leq m-1$. Pak pro $u\in \mathbb{W}_1^{|\alpha|} (B(x_0, \varrho))$ platí
+    \begin{equation*}
+        \mathcal{D}^\alpha (Q^{(m)}u)(x) = Q^{(m-|\alpha|)} (D^\alpha u)
+    \end{equation*}
+\end{claim}
+
+
+\begin{theorem}[O podobě zbytku] \todo{Tady možná upravit značení}
+    Nechť $u\in C^{(m)}(\mathcal{K}), x_0 \in \mathcal{K}, \varrho > 0, \mathcal{K}$ je $*B(x_0,\varrho)$. Pak platí:
+    \begin{equation*}
+        R^m u(x) = m \sum_{|\alpha = m|} \int_{C_x} K_\alpha (x,z) \mathcal{D}^\alpha u(z)dz 
+     \end{equation*}
+     kde $z=x + s(y-x), s\in <0,1>, K_\alpha (x,z) = \frac{1}{\alpha!} (x-z)^\alpha$ a existuje $C_1 > 0$ tak, že $|K(x,z)| \leq C_1 (1 + \frac{|x-x_0|}{\varrho})^n |z-x|^{-n}$
+\end{theorem}
+
+
+
+\begin{claim}[T5]
+    Bod $x_0 \in \mathcal{K}$ a $\varrho>0$ lze vybrat tak, že $(\exists C_5 >0) (\forall x,z \in \mathcal{K})$
+    \begin{equation*}
+        \left(|K(x,z)| \leq C_5 (1+\gamma)^n |z-x|^{-n} \right)
+    \end{equation*}
+\end{claim}
+
+
+\begin{lemma}[L1]
+    Nechť $p\geq 1,n \in \mathbb{N}, m\in\mathbb{N}$ taková, že platí tzv. alternativní předpoklad:
+    
+
+    \begin{equation*}
+        (p>1 \wedge m>\frac{n}{p}) \vee (p = 1 \wedge m\geq n) 
+    \end{equation*}
+     Pak: 
+    \begin{equation*}
+        (\exists C_{L1} > 0) (\forall u \in L_p (\mathcal{K})) (\int_{\mathcal{K}} |x-z|^{m-n} |u(z)| dz \leq C_{L1} (diam K)^{m-\frac{n}{p}} || u ||_{L_p(\mathcal{K})})
+    \end{equation*}
+\end{lemma}
+
+
+\begin{claim}[T6]
+    Nechť $p\geq1, m,n\in\mathbb{N}$ takové, že platí alternativní předpoklad. Pak existuje $C_{T6} > 0$ tak, že pro 
+    $u\in \mathbb{W}_p^{(m)}(\mathcal{K})$ a pro $x\in\mathcal{K}$ platí:
+    \begin{equation*}
+        \left| R^{(m)} u(x) \right| \leq C_{T6} (diam \mathcal{K})^{m-\frac{n}{p}} |u|_{W_p^{(m)}(\mathcal{K})}
+    \end{equation*}
+    kde $|u|_{W^{(m)}_p (\mathcal{K})} = \sum_{|\alpha| =  m} ||\mathcal{D}^\alpha u || _{L_p (\mathcal{K})}$
+\end{claim}
+
+
+\begin{theorem}[Sobolevova nerovnost]
+    Nechť $\mathcal{K} \subset \mathbb{R}^n$ je omezená oblast, $*B(x_0, \varrho)$, $diam \mathcal{K} = d$ a platí alternativní předpoklad.
+
+    Pak existuje $C_{V2} > 0$ tak, že $\forall u \in \mathbb{W}_p^{(m)} (K) : ||u||_{L_\infty(\mathcal{K})} \leq C_{V2} ||u||_{\mathbb{W}_p^{(m)}(\mathcal{K})} $ a $u\in\mathcal{C}(\bar{\mathcal{K}})$
+    
+\end{theorem}
+
+
+
+\begin{lemma}
+    Nechť $p\geq 1, m\in\mathbb{N}, d = diam \mathcal{K} < +\infty, g(x) = \int_\mathcal{K} |x-z|^{m-n} |f(z)| dz$.\
+
+    Pak existuje $C_{L2} > 0$ tak, že $||g||_{L_p(\mathcal{K})} \leq C_{L2} d^m ||f||_{L_p(\mathcal{K})}$
+\end{lemma}
+
+
+\begin{theorem}[Bramble-Hilbert]
+    Nechť $\mathcal{K}\subset\mathbb{R}^n$ je omezená oblast, $*B(x_0,\varrho), d=diam\mathcal{K}, \varrho > \frac{1}{2} \varrho_{max}, p\geq 1, m\in \mathbb{N} $
+    
+    Pak existuje $C_{V3} > 0$ tak, že $\forall u \in \mathbb{W}_p^{(m)}(\mathcal{K})$ a $\forall k = 0,...,m$ platí
+
+    \begin{equation*}
+        \left|  u-Q^{(m)}u     \right|_{W_p^{(k)}\mathcal{K}} \leq C_{V3} d^{m-k} |u|_{W_p^{(m)}\mathcal{K}} 
+    \end{equation*}
+
+
+\end{theorem}
+
+
+\begin{lemma}[L3]
+    Nechť $\SingleFiniteElement$ je konečný prvek, $\mathcal{P}$ obsahuje polynomy stupně  $< \tilde{m}$.
+
+    Pro $\mathcal{N}$ je $\mathcal{N}\subset \left[ \mathcal{C}^{(l)} (\bar{\mathcal{K}})  \right]^*, l\in \mathbb{N}_0$, tj používají se derivace do řádu $l$.
+
+
+    Pak $\mathcal{Y}_k : \mathcal{C}^{(l)}(\bar{\mathcal{K}}) \mapsto \mathbb{W}_p^{(m)}(\mathcal{K})$ pro $p\geq1$ je lineární omezený operátor. 
+\end{lemma}
+
+
+
+
+\begin{theorem}[O lokální interpolační chybě]
+    Nechť $\SingleFiniteElement$ je KP, kde:
+    \begin{enumerate}
+        \item K je $*B(x_0,\varrho)$
+        \item $\mathcal{P}$ obsahuje polynomy stupně $< m$
+        \item $\mathcal{N} \subset \left[C^{(l)}(\bar{\mathcal{K}})\right]^*$   
+    \end{enumerate}
+
+    a nechť pro $p\geq 1, m,n\in \mathbb{N}$ platí $(p>1 \wedge m-l > \frac{n}{p}) \vee (p=1 \wedge m-l \geq n)$
+
+    Pak existuje konstanta $C_{V4}$ tak , že $\forall v \in \mathcal{C}^{(l)} (\bar{\mathcal{K}})$ a $i=0,...,m$ Platí
+
+
+    \begin{equation*}
+        |v - \mathcal{Y}_k v|_{\mathbb{W_p^{i}}(\mathcal{K})} \leq C_{V4} (diam \mathcal{K})^{m-i} |v|_{\mathbb{W}_p^{(m)} (\mathcal{K})}
+    \end{equation*} 
+
+
+\end{theorem}
+
+
+\begin{claim}
+    Za daných předpokladů \todo{dopsat předpoklady} je norma $\mathcal{Y}_{\tilde{\mathcal{K}}} : \mathcal{C}^{(l)}(\bar{\tilde{\mathcal{K}}}) \mapsto \mathbb{W}_p^{(m)}(\tilde{\mathcal{K}})$ odhadnuta jako
+
+    \begin{equation*}
+        \sigma(\tilde{\mathcal{K}}) \leq C_{ref} * \chi(\mathbb{A})
+    \end{equation*}
+\end{claim}
+
+
+
+
+\begin{theorem}[V5]
+    Nechť $\Omega\subset\mathbb{R}^n$ je omezená polyhedrální oblast, $\left\{ \mathcal{J}^h \right\}_{h\in(0,1>}$ je nedegerovaný.
+
+    $\SingleFiniteElement$ referenční prvek, pro který pro nějaká m,l,p platí
+    \begin{enumerate}
+        \item $\mathcal{K}$ je $*B(x_0,\varrho)$
+        \item $\mathcal{P}$ obsahuje polynomy stupně $< m$
+        \item funkcionály v $\mathcal{N}$ používají derivace řádu $\leq l$
+        \item $(p>1 \wedge m-l-\frac{n}{p} >0) \vee (p=1 \wedge m-l-n \geq 0)$
+    \end{enumerate}
+
+    Dále nechť $\forall h \in (0,1> (\forall T \in \mathcal{J}^h ) ( (\mathcal{T}, \mathcal{P}_\mathcal{T}, \mathcal{N}_\mathcal{T})$ interpolačně ekvivalentní s $\SingleFiniteElement )$
+
+    Pak existuje konstanta $C_{V5} = C(m,n,p,\varrho,\mathcal{K}) > 0$
+
+    kde $diam B_\mathcal{T} \geq \varrho diam \mathcal{T}$, tak, že $(\forall s = 0,...,m) (\forall v \in \mathbb{W}_p^{(m)}(\Omega))$ platí
+
+    \begin{equation*}
+        \left[  \sum_{\mathcal{T} \in \mathcal{J}^h} ||v - \mathcal{Y}_h v ||^p_{\mathbb{W}_p^{(s)}( \mathcal{T})}   \right]^\frac{1}{p}   \leq C_{V5} h^{m-s} |v|_{\mathbb{W}_p^{(m)} (\Omega) }
+    \end{equation*}
+
+\end{theorem}
+
+
+\begin{claim}
+    Nechť $\Omega\subset\mathbb{R}^n$ je omezená polyhedrální konvexní oblast. Pak řešení úlohy (s jednotkovou maticí a bez členu q, na tabuli 1L) je z $\mathbb{W}_2^{(2)}(\Omega)$
+
+\end{claim}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

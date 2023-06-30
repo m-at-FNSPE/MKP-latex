@@ -18,13 +18,13 @@
     Prozkoumáme možnost derivování $\mathcal{Y}_\mathcal{J} u$ v $\Omega$ (pomocí derivací ve smyslu  distribucí)
 
     Pro $k\in\hat{n}:$ 
-    \begin{multline}
-    <\partial_{x_k}>(\mathcal{Y}_\mathcal{J} u), \phi> = - <\mathcal{Y}_\mathcal{J} u, \partial_{x_k} \phi> = - \int_\Omega \mathcal{Y}_\mathcal{J} u(x) \partial_{x_k}\phi(x) \ dx =\\
-    %= - \sum_{K\in\mathcal{J}}\int_{K} \mathcal{Y}_K u(x) \partial_{x_k} \phi(x) \ dx =  \left{\text{Green}\right} = \sum_{K\in\mathcal{J}} \left\{- \int_{\partial K} \mathcal{Y}_K u(x) \phi(x) N^{(K)}_k (x) \ dS + \int_{K} \partial_{x_k} \mathcal{Y}_K u(x) \phi(x) \ dx\right\} =\\
-    %= \left\{\text{Platí že} \vec{N}^{K_1} = - \vec{N}^{K_2} \text{viz obrázek}\right\} = \left\{ \mathcal{Y}_{K_1} u(x)|_{\partial K_1 \cap \partial K_2} = \mathcal{Y}_{K_2} u(x)|_{\partial K_1 \cap \partial K_2}, \phi|_{\partial\Omega} = 0  \right\}  = \left\{\text{Tj první člen je nula}\right\} = \\
-    = \sum_{K\in\mathcal{J} }\int_K \Chi_{k} (x) \partial_{x_k} \mathcal{Y}_K u(x) \phi(x) \ dx = \int_\Omega\sum_{K\in\mathcal{J} } \Chi_{k} (x) \partial_{x_k} \mathcal{Y}_K u(x) \phi(x) \ dx = \left\{\text{Pro K omezená jsme v }L_\infty\right\} = \left\{ původně bylo \right\} =\\
-    = <\partial_{x_k}\mathcal{Y}_\mathcal{J} u, \phi >
-    \end{multline}
+    % \begin{multline}
+    % <\partial_{x_k}>(\mathcal{Y}_\mathcal{J} u), \phi> = - <\mathcal{Y}_\mathcal{J} u, \partial_{x_k} \phi> = - \int_\Omega \mathcal{Y}_\mathcal{J} u(x) \partial_{x_k}\phi(x) \ dx =\\
+    % %= - \sum_{K\in\mathcal{J}}\int_{K} \mathcal{Y}_K u(x) \partial_{x_k} \phi(x) \ dx =  \left{\text{Green}\right} = \sum_{K\in\mathcal{J}} \left\{- \int_{\partial K} \mathcal{Y}_K u(x) \phi(x) N^{(K)}_k (x) \ dS + \int_{K} \partial_{x_k} \mathcal{Y}_K u(x) \phi(x) \ dx\right\} =\\
+    % %= \left\{\text{Platí že} \vec{N}^{K_1} = - \vec{N}^{K_2} \text{viz obrázek}\right\} = \left\{ \mathcal{Y}_{K_1} u(x)|_{\partial K_1 \cap \partial K_2} = \mathcal{Y}_{K_2} u(x)|_{\partial K_1 \cap \partial K_2}, \phi|_{\partial\Omega} = 0  \right\}  = \left\{\text{Tj první člen je nula}\right\} = \\
+    % = \sum_{K\in\mathcal{J} }\int_K \Chi_{k} (x) \partial_{x_k} \mathcal{Y}_K u(x) \phi(x) \ dx = \int_\Omega\sum_{K\in\mathcal{J} } \Chi_{k} (x) \partial_{x_k} \mathcal{Y}_K u(x) \phi(x) \ dx = \left\{\text{Pro K omezená jsme v }L_\infty\right\} = \left\{ původně bylo \right\} =\\
+    % = <\partial_{x_k}\mathcal{Y}_\mathcal{J} u, \phi >
+    % \end{multline}
 
 
     $\implies \partial_{x_k} \mathcal{Y}_\mathcal{J} u \in L_\infty(\Omega), tj. \mathcal{Y}_\mathcal{J} u \in \mathbb{W}_\infty^{(1)}(\Omega)$

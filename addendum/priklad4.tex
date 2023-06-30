@@ -1,0 +1,52 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+
+
+
+\begin{document}
+
+\subsection{Úkol 4 - Příklad 3}
+\subsubsection{Zadání}
+
+
+Rozviňte do Taylorova polynomu typu 4 v bodě $[0,0]$ funkci $\sin (x^2 - y^2)$.
+
+
+\subsubsection{Řešení}
+
+Z definice hledáme:
+
+\begin{equation*}
+    T^{(4)}_{[0,0]} \sin (x^2 - y^2) = \sum_{|\alpha|<4} \frac{1}{\alpha !} D^\alpha \sin (x^2 - y^2) |_{[0,0]} x^\alpha_1 y^\alpha_2
+\end{equation*}
+
+Pro zjednodušení zápisu označme $f(x,y) = \sin(x^2 - y^2)$
+
+Využíváme toho že můžeme zaměňovat pořadí derivací.
+
+Spočtěme tedy derivace až do 3. řádu včetně, vyhodnocené v $[0,0]$:
+
+% \frac{\partial \sin(x^2 - y^2)}{\partial x \partial y}|_{[0,0]} &=                                \\
+
+
+
+\begin{align*}
+    \frac{\partial \sin(x^2 - y^2)}{\partial x }|_{[0,0]} &=   2x\cos(x^2 - y^2)  |_{[0,0]} = 0                           \\
+    \frac{\partial \sin(x^2 - y^2)}{\partial y}|_{[0,0]} &=   -  2y\cos(x^2 - y^2)  |_{[0,0]} = 0                           \\
+    \frac{\partial \sin(x^2 - y^2)}{\partial x \partial y}|_{[0,0]} &=   4xy\sin(x^2 - y^2)  |_{[0,0]}   = 0                         \\
+    \frac{\partial \sin(x^2 - y^2)}{\partial x^2 }|_{[0,0]} &=   2\cos(x^2 - y^2) - 4x^2\sin(x^2 - y^2) |_{[0,0]} = 2                             \\
+    \frac{\partial \sin(x^2 - y^2)}{\partial y^2}|_{[0,0]} &=   -2\cos(x^2 - y^2) + 4y^2\sin(x^2 - y^2) |_{[0,0]} = -2                               \\
+    \frac{\partial \sin(x^2 - y^2)}{\partial x^3}|_{[0,0]} &=   - 4x\sin(x^2 - y^2) - 8x\sin(x^2 - y^2)  - 8x^3\cos(x^2 - y^2) |_{[0,0]}     = 0                       \\
+    \frac{\partial \sin(x^2 - y^2)}{\partial y^3}|_{[0,0]} &=   - 4y\sin(x^2 - y^2) - 8y\sin(x^2 - y^2)  + 8y^3\cos(x^2 - y^2) |_{[0,0]}     = 0                                                      \\
+    \frac{\partial \sin(x^2 - y^2)}{\partial x^2 \partial y}|_{[0,0]} &=     4y\sin(x^2 - y^2) + 8x^2y\cos(x^2 - y^2) |_{[0,0]}    = 0                        \\
+    \frac{\partial \sin(x^2 - y^2)}{\partial x \partial y^2}|_{[0,0]} &=   4x\sin(x^2 - y^2) - 8xy^2\cos(x^2 - y^2) |_{[0,0]}    = 0                       
+\end{align*}
+
+
+Spočtené hodnoty dosaďme do definice a dostaneme:
+
+\begin{equation*}
+    T^{(4)}_{[0,0]} \sin (x^2 - y^2) = \frac{2}{2} x^2  + \frac{-2}{2} y^2  = x^2 - y^2
+\end{equation*}
+
+\end{document}
